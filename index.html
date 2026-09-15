@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 130 100%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%25%27 stop-color=%27%23E3C892%27/%3E%3Cstop offset=%27100%25%27 stop-color=%27%238C6A3B%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%27130%27 height=%27100%27 fill=%27%23fff%27/%3E%3Cpath d=%27M100 14C60 6 40 30 66 45C96 62 90 88 46 90%27 stroke=%27%23B9924F%27 stroke-width=%2716%27 stroke-linecap=%27round%27 fill=%27none%27/%3E%3Ctext x=%2734%27 y=%2780%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2792%27 fill=%27url(%23g)%27%3EP%3C/text%3E%3Ctext x=%2772%27 y=%2780%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2792%27 fill=%27url(%23g)%27%3EA%3C/text%3E%3C/svg%3E">
-<title>PSA Compliance</title>
-<meta name="description" content="PSA Advocacia Empresarial: programas de integridade, código de conduta, comitês de ética, canais de denúncia, apuração de relatos e treinamento de comitês para empresas e conselhos.">
+<title>PSA Advocacia Consultiva</title>
+<meta name="description" content="PSA Advocacia Consultiva: assessoria jurídica em compliance, direito tributário e direito empresarial, com atuação preventiva e contenciosa para empresas em todo o Brasil.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -172,13 +172,10 @@
   .flow-step small{ display:block; font-size:12px; color:var(--muted); margin-top:1px; }
   .hero-panel .cite{ margin-top:18px; padding-top:16px; border-top:1px solid var(--border); font-size:11.5px; color:var(--muted); font-style:italic; line-height:1.5; }
   @media (prefers-reduced-motion: no-preference){
-    @keyframes stepGlow{ 0%,88%,100%{ box-shadow:none; } 4%,8%{ box-shadow:0 0 0 5px var(--gold-soft); } }
-    .flow-step:nth-child(1) .flow-num{ animation:stepGlow 9s ease-in-out infinite; }
-    .flow-step:nth-child(2) .flow-num{ animation:stepGlow 9s ease-in-out infinite 1.5s; }
-    .flow-step:nth-child(3) .flow-num{ animation:stepGlow 9s ease-in-out infinite 3s; }
-    .flow-step:nth-child(4) .flow-num{ animation:stepGlow 9s ease-in-out infinite 4.5s; }
-    .flow-step:nth-child(5) .flow-num{ animation:stepGlow 9s ease-in-out infinite 6s; }
-    .flow-step:nth-child(6) .flow-num{ animation:stepGlow 9s ease-in-out infinite 7.5s; }
+    @keyframes stepGlow{ 0%,80%,100%{ box-shadow:none; } 6%,14%{ box-shadow:0 0 0 5px var(--gold-soft); } }
+    .flow-step:nth-child(1) .flow-num{ animation:stepGlow 7.5s ease-in-out infinite; }
+    .flow-step:nth-child(2) .flow-num{ animation:stepGlow 7.5s ease-in-out infinite 2.5s; }
+    .flow-step:nth-child(3) .flow-num{ animation:stepGlow 7.5s ease-in-out infinite 5s; }
   }
 
   /* Subtle pointer-tilt on premium surfaces (desktop, fine pointer, motion allowed) */
@@ -197,6 +194,12 @@
 
   /* Services grid (interactive accordion cards) */
   .grid-services{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .svc-group-label{
+    grid-column:1 / -1; font-family:'Playfair Display',serif; font-size:13px; font-weight:700;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dark);
+    padding-bottom:10px; border-bottom:1px solid var(--border); margin-top:12px;
+  }
+  .svc-group-label:first-child{ margin-top:0; }
   .svc{
     background:var(--surface); border:1px solid var(--border); border-radius:14px;
     transition:border-color .15s ease, box-shadow .15s ease, transform .12s ease;
@@ -367,9 +370,9 @@
       <span class="word"><b>PSA</b><span>Advocacia Consultiva</span></span>
     </a>
     <nav class="links" id="deskNav">
-      <a href="#compliance">Compliance</a>
+      <a href="#atuacao">Atuação</a>
       <a href="#metodo">Método</a>
-      <a href="#areas">Áreas</a>
+      <a href="#areas">Diferenciais</a>
       <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
     </nav>
@@ -385,9 +388,9 @@
     </div>
   </div>
   <nav id="mobile-nav">
-    <a href="#compliance">Compliance</a>
+    <a href="#atuacao">Atuação</a>
     <a href="#metodo">Método</a>
-    <a href="#areas">Áreas</a>
+    <a href="#areas">Diferenciais</a>
     <a href="#sobre">Sobre</a>
     <a href="#contato">Contato</a>
   </nav>
@@ -404,30 +407,27 @@
     </svg>
     <div class="wrap hero-grid">
       <div data-reveal>
-        <div class="eyebrow">Direito Empresarial &amp; Compliance</div>
-        <h1>Governança que resiste ao <em>escrutínio</em>, não só ao discurso</h1>
-        <p class="lede">A PSA Advocacia Empresarial estrutura e assessora programas de integridade, códigos de conduta, comitês de ética e canais de denúncia — do desenho da política ao tratamento do relato mais difícil.</p>
+        <div class="eyebrow">Compliance · Tributário · Empresarial</div>
+        <h1><em>Blindagem</em> jurídica para negócios que não podem parar</h1>
+        <p class="lede">A PSA Advocacia Consultiva atua em compliance, direito tributário e direito empresarial — do desenho preventivo de políticas e contratos à defesa administrativa e judicial — para empresas que não têm espaço para incerteza jurídica.</p>
         <div class="hero-stats">
           <span>12 anos blindando negócios</span><span class="dot">•</span>
-          <span>Compliance · Tributário · Penal Econômico</span><span class="dot">•</span>
+          <span>Compliance · Tributário · Empresarial</span><span class="dot">•</span>
           <span>Atuação em todo o Brasil</span>
         </div>
         <div class="actions">
           <a class="btn btn-primary" href="https://wa.me/5521983884842" target="_blank" rel="noopener">Agendar conversa</a>
-          <a class="btn btn-ghost" href="#compliance">Ver como atuamos</a>
+          <a class="btn btn-ghost" href="#atuacao">Ver como atuamos</a>
         </div>
       </div>
       <div class="hero-panel" data-reveal>
-        <div class="eyebrow" style="margin-bottom:16px;">Como uma apuração se conduz</div>
+        <div class="eyebrow" style="margin-bottom:16px;">Três frentes, uma só estratégia</div>
         <div class="flow">
-          <div class="flow-step"><span class="flow-num">1</span><div><b>Relato</b><small>O que foi comunicado, por quem e por qual canal</small></div></div>
-          <div class="flow-step"><span class="flow-num">2</span><div><b>Hipótese</b><small>Qual norma, política ou dever pode ter sido violado</small></div></div>
-          <div class="flow-step"><span class="flow-num">3</span><div><b>Questão</b><small>O que precisa ser esclarecido para confirmar ou afastar o fato</small></div></div>
-          <div class="flow-step"><span class="flow-num">4</span><div><b>Evidência</b><small>Documentos, registros e depoimentos que sustentam a análise</small></div></div>
-          <div class="flow-step"><span class="flow-num">5</span><div><b>Diligência</b><small>Verificação ativa, sem pressa e sem atalho</small></div></div>
-          <div class="flow-step"><span class="flow-num">6</span><div><b>Conclusão</b><small>Fundamentação registrada e providência proporcional</small></div></div>
+          <div class="flow-step"><span class="flow-num">1</span><div><b>Compliance</b><small>Programas de integridade, código de conduta e canais de denúncia que resistem a auditoria e fiscalização</small></div></div>
+          <div class="flow-step"><span class="flow-num">2</span><div><b>Tributário</b><small>Planejamento, defesa administrativa e judicial e recuperação de créditos fiscais</small></div></div>
+          <div class="flow-step"><span class="flow-num">3</span><div><b>Empresarial</b><small>Contratos, societário e governança que sustentam o crescimento sem abrir brechas jurídicas</small></div></div>
         </div>
-        <div class="cite">Inspirado no método cartesiano de dividir cada dificuldade em tantas partes quantas seja possível — a lógica que orienta toda apuração conduzida com rigor.</div>
+        <div class="cite">Três áreas que, na prática, raramente aparecem separadas dentro de uma empresa — por isso trabalhamos as três de forma integrada.</div>
       </div>
     </div>
   </section>
@@ -436,21 +436,22 @@
     <div class="wrap">
       <span class="label">Base normativa de referência</span>
       <span class="item">Lei nº 12.846/2013 <span>· Lei Anticorrupção</span></span>
-      <span class="item">Decreto nº 11.129/2022 <span>· Programas de integridade</span></span>
+      <span class="item">Lei nº 5.172/1966 <span>· Código Tributário Nacional</span></span>
+      <span class="item">Lei nº 6.404/1976 <span>· Lei das Sociedades Anônimas</span></span>
       <span class="item">Lei nº 13.709/2018 <span>· LGPD</span></span>
-      <span class="item">CLT &amp; jurisprudência TST <span>· Assédio e relações de trabalho</span></span>
     </div>
   </div>
 
-  <section id="compliance">
+  <section id="atuacao">
     <div class="wrap">
       <div class="sec-head" data-reveal>
-        <div class="eyebrow">Compliance em foco</div>
-        <h2>Compliance é o que a empresa faz quando ninguém está checando</h2>
-        <p class="lede" style="margin-top:14px;">Cumprir a lei é o piso. Um programa de integridade maduro define responsabilidades, mede riscos, treina pessoas e garante que um relato — inclusive contra a própria liderança — receba tratamento imparcial e documentado. É nesse ponto que compliance deixa de ser política de gaveta e passa a proteger de fato a organização, os administradores e quem denuncia de boa-fé.</p>
+        <div class="eyebrow">Áreas de atuação</div>
+        <h2>Compliance, tributário e direito empresarial em uma só estratégia jurídica</h2>
+        <p class="lede" style="margin-top:14px;">Cada área resolve uma parte do risco: compliance previne, o tributário reduz exposição e custo, e o direito empresarial sustenta a operação do negócio. Trabalhamos as três de forma integrada, para que a solução de uma frente não crie um problema em outra.</p>
       </div>
 
       <div class="grid-services">
+        <div class="svc-group-label">Compliance</div>
         <div class="svc" data-reveal>
           <button class="svc-head" aria-expanded="false" aria-controls="svc-01">
             <div class="svc-head-row">
@@ -463,7 +464,7 @@
             </div>
           </button>
           <div class="svc-more" id="svc-01"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-quote">"É impossível deliberar com ética sem compreender a estrutura institucional que sustenta essas decisões."</p>
+            <p class="svc-quote">Um programa só protege a empresa e os administradores quando sai do papel e vira rotina de decisão.</p>
           </div></div></div>
         </div>
 
@@ -472,14 +473,14 @@
             <div class="svc-head-row">
               <div>
                 <div class="n">02</div>
-                <h3>Código de conduta e políticas</h3>
-                <p>Elaboração e revisão de código de conduta, políticas de conflito de interesses, presentes e brindes, relacionamento com terceiros e segurança da informação, com linguagem aplicável ao dia a dia.</p>
+                <h3>Código de conduta e canais de denúncia</h3>
+                <p>Elaboração de código de conduta, políticas internas e canal de ética, com fluxo de recebimento, triagem e apuração de relatos.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-02"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-quote">"O Comitê não cria regras, mas garante que os princípios do Código orientem as decisões institucionais."</p>
+            <p class="svc-quote">Um canal de denúncia só tem credibilidade quando o colaborador confia no sigilo e no tratamento imparcial do relato.</p>
           </div></div></div>
         </div>
 
@@ -488,30 +489,31 @@
             <div class="svc-head-row">
               <div>
                 <div class="n">03</div>
-                <h3>Comitês de ética</h3>
-                <p>Estruturação de regimentos, capacitação de membros e assessoria continuada a comitês de conduta ética e comitês do conselho de administração na análise e deliberação de casos.</p>
+                <h3>Investigações internas e treinamento</h3>
+                <p>Condução ou apoio a investigações internas, análise de denúncias e capacitação de conselheiros, diretores e equipes em ética e tomada de decisão.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-03"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-quote">"A atuação multidisciplinar dos membros fortalece a consistência e a imparcialidade das decisões do Comitê."</p>
+            <p class="svc-quote">Treinar quem decide é tão importante quanto ter a política escrita.</p>
           </div></div></div>
         </div>
 
+        <div class="svc-group-label">Tributário</div>
         <div class="svc" data-reveal>
           <button class="svc-head" aria-expanded="false" aria-controls="svc-04">
             <div class="svc-head-row">
               <div>
                 <div class="n">04</div>
-                <h3>Canais de denúncia e apuração</h3>
-                <p>Implantação de canal de ética, definição de fluxo de triagem e condução ou acompanhamento de investigações internas, da hipótese à conclusão fundamentada.</p>
+                <h3>Planejamento tributário</h3>
+                <p>Estruturação fiscal preventiva, revisão de regime de tributação e identificação de oportunidades de economia lícita.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-04"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-quote">"Comitê é parte da estrutura que garante a credibilidade institucional do Canal de Ética."</p>
+            <p class="svc-quote">Planejamento tributário bem feito é decidido antes da operação acontecer, não depois da autuação chegar.</p>
           </div></div></div>
         </div>
 
@@ -520,14 +522,14 @@
             <div class="svc-head-row">
               <div>
                 <div class="n">05</div>
-                <h3>Assédio e discriminação</h3>
-                <p>Diagnóstico e resposta a relatos de assédio moral, sexual e eleitoral no ambiente de trabalho, com metodologia de análise de contexto, recorrência e efeitos.</p>
+                <h3>Contencioso administrativo e judicial</h3>
+                <p>Defesa em autuações fiscais e processos administrativos, além de ações judiciais tributárias, incluindo parcelamentos e teses de repetição de indébito.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-05"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-note">Inclui prevenção ao assédio eleitoral no ambiente de trabalho, protegendo a liberdade de escolha dos colaboradores e orientando comitês na condução de denúncias sensíveis.</p>
+            <p class="svc-quote">Cada autuação é também uma oportunidade de revisar a tese fiscal aplicada e, muitas vezes, de recuperar valores pagos indevidamente.</p>
           </div></div></div>
         </div>
 
@@ -536,30 +538,31 @@
             <div class="svc-head-row">
               <div>
                 <div class="n">06</div>
-                <h3>Devida diligência de terceiros</h3>
-                <p>Avaliação de fornecedores, parceiros e representantes antes e durante a relação contratual, com foco em integridade, direitos humanos e reputação.</p>
+                <h3>Consultoria tributária preventiva</h3>
+                <p>Análise prévia de operações, contratos e reorganizações societárias sob a ótica tributária, para reduzir risco fiscal antes da execução.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-06"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-note">Metodologia aplicada em setores como energia, óleo e gás, mercado de capitais, saúde, logística, transporte e entretenimento, com apoio de background checks e avaliações de risco.</p>
+            <p class="svc-quote">O melhor momento para consultar o time tributário é antes de assinar o contrato, não depois de receber a notificação.</p>
           </div></div></div>
         </div>
 
+        <div class="svc-group-label">Empresarial</div>
         <div class="svc" data-reveal>
           <button class="svc-head" aria-expanded="false" aria-controls="svc-07">
             <div class="svc-head-row">
               <div>
                 <div class="n">07</div>
-                <h3>Proteção de dados</h3>
-                <p>Adequação à LGPD em processos de investigação e gestão de canais de ética, conciliando apuração eficaz com finalidade legítima e minimização de dados.</p>
+                <h3>Contratos empresariais</h3>
+                <p>Elaboração e revisão de contratos comerciais, de prestação de serviços, parceria e fornecimento, com cláusulas que antecipam disputas.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-07"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-quote">"A governança e a confidencialidade das informações protegem o processo decisório e reduzem a personalização do risco reputacional."</p>
+            <p class="svc-quote">Um bom contrato é aquele que ninguém precisa reler quando a relação já está desgastada.</p>
           </div></div></div>
         </div>
 
@@ -568,14 +571,14 @@
             <div class="svc-head-row">
               <div>
                 <div class="n">08</div>
-                <h3>Treinamento e cultura</h3>
-                <p>Capacitação de conselheiros, diretores, comitês e equipes em conduta ética, tomada de decisão e prevenção de irregularidades, com estudos de caso reais do setor.</p>
+                <h3>Societário e reorganizações</h3>
+                <p>Constituição de sociedades, alterações contratuais, acordos de sócios, fusões, aquisições e reorganizações societárias.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-08"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-quote">"Uma cultura de integridade organizacional depende da confiança percebida naqueles que conduzem as decisões."</p>
+            <p class="svc-quote">A maioria dos conflitos entre sócios nasce de um acordo que nunca previu o desacordo.</p>
           </div></div></div>
         </div>
 
@@ -584,14 +587,14 @@
             <div class="svc-head-row">
               <div>
                 <div class="n">09</div>
-                <h3>Resposta a incidentes</h3>
-                <p>Apoio em situações de crise envolvendo corrupção, fraude ou vazamento, incluindo interlocução com autoridades quando houver indício de ilícito penal.</p>
+                <h3>Governança corporativa</h3>
+                <p>Estruturação de políticas internas e de conselhos, e assessoria a administradores na tomada de decisão e na responsabilização.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-09"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-quote">"Quando há dever de agir, a omissão diante de uma transgressão também pode caracterizar participação na conduta e comprometer a integridade institucional."</p>
+            <p class="svc-quote">Governança não é burocracia extra — é o que permite a uma empresa crescer sem depender de uma única pessoa decidir tudo.</p>
           </div></div></div>
         </div>
       </div>
@@ -602,19 +605,19 @@
     <div class="wrap">
       <div class="sec-head" data-reveal style="margin-bottom:30px;">
         <div class="eyebrow">Método</div>
-        <h2>Um relato só vira decisão depois de passar por seis filtros</h2>
+        <h2>O mesmo rigor, em compliance, tributário ou no dia a dia da empresa</h2>
       </div>
       <div class="method-row" data-reveal id="methodRow">
-        <button class="m-step active" aria-expanded="true"><span class="k">01</span><b>Relato</b><small>Registro do que foi comunicado e por qual canal chegou.</small></button>
-        <button class="m-step" aria-expanded="false"><span class="k">02</span><b>Hipótese</b><small>Identificação da norma ou dever supostamente descumprido.</small></button>
-        <button class="m-step" aria-expanded="false"><span class="k">03</span><b>Questão</b><small>Definição do que precisa ser esclarecido no caso concreto.</small></button>
-        <button class="m-step" aria-expanded="false"><span class="k">04</span><b>Evidência</b><small>Reunião de documentos, sistemas e depoimentos pertinentes.</small></button>
-        <button class="m-step" aria-expanded="false"><span class="k">05</span><b>Diligência</b><small>Verificação ativa dos fatos, com contraditório quando cabível.</small></button>
-        <button class="m-step" aria-expanded="false"><span class="k">06</span><b>Conclusão</b><small>Relatório fundamentado e providência proporcional à gravidade.</small></button>
+        <button class="m-step active" aria-expanded="true"><span class="k">01</span><b>Diagnóstico</b><small>Levantamento do cenário jurídico, riscos e oportunidades do negócio.</small></button>
+        <button class="m-step" aria-expanded="false"><span class="k">02</span><b>Estratégia</b><small>Definição do caminho jurídico mais seguro e eficiente para o objetivo do cliente.</small></button>
+        <button class="m-step" aria-expanded="false"><span class="k">03</span><b>Estruturação</b><small>Elaboração de contratos, políticas, petições ou defesas conforme o caso.</small></button>
+        <button class="m-step" aria-expanded="false"><span class="k">04</span><b>Execução</b><small>Condução do processo administrativo, judicial ou da implementação interna.</small></button>
+        <button class="m-step" aria-expanded="false"><span class="k">05</span><b>Acompanhamento</b><small>Monitoramento de prazos, decisões e desdobramentos até a conclusão.</small></button>
+        <button class="m-step" aria-expanded="false"><span class="k">06</span><b>Revisão</b><small>Ajuste de estratégia conforme a evolução do caso ou do negócio.</small></button>
       </div>
       <div class="method-detail" data-reveal>
         <span class="method-detail-k" id="methodDetailK">01</span>
-        <p id="methodDetailText">Registramos o que foi comunicado, por quem e por qual canal — e-mail, canal de ética, denúncia verbal ou anônima — preservando o relato original antes de qualquer interpretação.</p>
+        <p id="methodDetailText">Levantamos o cenário jurídico do cliente — riscos de compliance, exposição tributária, vulnerabilidades contratuais ou societárias — antes de recomendar qualquer caminho.</p>
       </div>
       <div class="method-epigraph" data-reveal>
         “Dividir cada uma das dificuldades que eu examinasse em tantas partes quantas fosse possível, para melhor resolvê-las.”
@@ -627,23 +630,23 @@
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <div class="eyebrow">Por que a PSA</div>
-        <h2>Três coisas que um comitê de ética não pode terceirizar</h2>
+        <h2>Três coisas que orientam cada decisão jurídica que tomamos</h2>
       </div>
       <div class="diff-grid">
         <div class="item" data-reveal>
-          <span class="idx">Independência</span>
-          <b>Consultoria, não substituição</b>
-          <p>Apoiamos a apuração e a fundamentação técnica, mas a decisão continua sendo do colegiado — porque a função de membro de comitê é indelegável, e é assim que a proteção contra retaliação e as garantias de independência se sustentam.</p>
+          <span class="idx">Visão integrada</span>
+          <b>Compliance, tributário e societário na mesma mesa</b>
+          <p>Uma solução tributária que ignora compliance, ou um contrato que ignora o regime fiscal, resolve um problema e cria outro. Analisamos as três frentes antes de recomendar qualquer caminho.</p>
         </div>
         <div class="item" data-reveal>
-          <span class="idx">Confidencialidade</span>
-          <b>Sigilo tratado como processo</b>
-          <p>Definimos quem acessa cada informação, em que etapa e para qual finalidade — do denunciante ao investigado — porque a credibilidade de um canal de ética depende de proteção efetiva, não apenas prometida.</p>
+          <span class="idx">Preventivo e contencioso</span>
+          <b>Do desenho da política à defesa no processo</b>
+          <p>Ajudamos a evitar o problema — e, quando ele já existe, defendemos o cliente em processo administrativo ou judicial, sem perder o histórico do caso na troca de fase.</p>
         </div>
         <div class="item" data-reveal>
-          <span class="idx">Rastreabilidade</span>
-          <b>Toda conclusão, documentada</b>
-          <p>Cada apuração resulta em registro fundamentado: o que foi analisado, por que a conclusão foi essa e qual providência é proporcional — para resistir a uma auditoria, uma fiscalização ou uma disputa judicial.</p>
+          <span class="idx">Proximidade</span>
+          <b>Sócia à frente de cada caso</b>
+          <p>Priscila Alves acompanha diretamente os casos da PSA, com atuação reconhecida pela Leaders League Brasil 2025 e experiência junto à CVM e a Tribunais de Contas.</p>
         </div>
       </div>
     </div>
@@ -654,7 +657,7 @@
       <div data-reveal>
         <div class="avatar-wrap">
           <div class="avatar">
-            <img src="assets/priscila-alves.jpg" alt="Priscila Alves, sócia da PSA Advocacia Empresarial">
+            <img src="assets/priscila-alves.jpg" alt="Priscila Alves, sócia da PSA Advocacia Consultiva">
           </div>
           <div class="badge-award">
             <b>Leaders League Brasil 2025</b>
@@ -664,10 +667,10 @@
       </div>
       <div data-reveal>
         <div class="eyebrow">Quem conduz</div>
-        <p class="about-quote">"Um programa de compliance só é testado de verdade no relato mais difícil — aquele que envolve alguém com poder de retaliar."</p>
+        <p class="about-quote">"Direito empresarial de verdade é aquele que evita o problema tributário e o risco de compliance antes que virem crise."</p>
         <div class="about-name">
           <b>Priscila Alves</b>
-          <span>Sócia responsável pela área de Compliance &amp; Governança — PSA Advocacia Empresarial</span>
+          <span>Sócia fundadora — PSA Advocacia Consultiva</span>
           <span class="about-tagline">Compliance · Investigações · Reputação</span>
         </div>
         <p class="about-bio">Advogada com atuação especializada em compliance, governança corporativa e investigações internas, com experiência no assessoramento jurídico de empresas nacionais e internacionais em integridade corporativa, gestão de riscos e responsabilização jurídica.</p>
@@ -713,8 +716,8 @@
     <div class="wrap contact-grid">
       <div data-reveal>
         <div class="eyebrow">Contato</div>
-        <h2>Antes do relato virar crise, ele passa por um processo</h2>
-        <p class="lede">Fale com a equipe de Compliance &amp; Governança da PSA para estruturar um programa novo, revisar o que já existe ou apoiar um caso em curso.</p>
+        <h2>Uma conversa agora evita um problema maior depois</h2>
+        <p class="lede">Fale com a equipe da PSA para estruturar compliance, resolver uma questão tributária ou revisar contratos e a governança do seu negócio.</p>
         <div class="ch-list">
           <div class="ch-item">
             <span class="ch-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.07-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke="currentColor" stroke-width="1.6"/></svg></span>
@@ -740,7 +743,7 @@
 
 <footer class="site">
   <div class="wrap foot-row">
-    <div class="foot-brand">© <span id="year">2026</span> PSA Advocacia Empresarial · Direito Empresarial &amp; Compliance</div>
+    <div class="foot-brand">© <span id="year">2026</span> PSA Advocacia Consultiva · Compliance · Tributário · Empresarial</div>
     <div class="foot-links">
       <a href="https://instagram.com/psaadvocaciaempresarial" target="_blank" rel="noopener">Instagram</a>
       <a href="https://wa.me/5521983884842" target="_blank" rel="noopener">WhatsApp</a>
@@ -805,7 +808,7 @@
 
     // Scrollspy
     var navLinks = document.querySelectorAll('#deskNav a');
-    var sectionIds = ['compliance','metodo','areas','sobre','contato'];
+    var sectionIds = ['atuacao','metodo','areas','sobre','contato'];
     var sections = sectionIds.map(function(id){ return document.getElementById(id); }).filter(Boolean);
     if ('IntersectionObserver' in window && sections.length){
       var spy = new IntersectionObserver(function(entries){
@@ -859,12 +862,12 @@
 
     // Método: click a step to reveal its expanded explanation
     var methodDetails = [
-      'Registramos o que foi comunicado, por quem e por qual canal — e-mail, canal de ética, denúncia verbal ou anônima — preservando o relato original antes de qualquer interpretação.',
-      'Delimitamos qual norma, política interna ou dever pode ter sido violado, definindo o escopo da apuração antes de reunir qualquer prova.',
-      'Definimos o que precisa ser esclarecido no caso concreto: o fato a confirmar ou afastar, e a prova capaz de sustentar essa conclusão.',
-      'Reunimos documentos, sistemas, registros e depoimentos pertinentes, com cadeia de custódia documentada e critério claro de admissibilidade.',
-      'Verificamos os fatos de forma ativa — sem pressa e sem atalho —, ouvindo as partes envolvidas e assegurando o contraditório quando cabível.',
-      'Registramos a fundamentação da decisão e indicamos a providência proporcional à gravidade apurada, documentando cada etapa do raciocínio.'
+      'Levantamos o cenário jurídico do cliente — riscos de compliance, exposição tributária, vulnerabilidades contratuais ou societárias — antes de recomendar qualquer caminho.',
+      'Definimos o caminho jurídico mais seguro e eficiente para o objetivo do cliente, com os trade-offs explicados em linguagem de negócio, não só jurídica.',
+      'Elaboramos o que o caso exige: políticas internas, contratos, petições ou peças de defesa, conforme a natureza da questão.',
+      'Conduzimos o processo administrativo ou judicial, ou a implementação interna da solução, com o mesmo rigor do planejamento.',
+      'Monitoramos prazos, decisões e desdobramentos até a conclusão do caso, mantendo o cliente informado em cada etapa relevante.',
+      'Ajustamos a estratégia conforme a evolução do processo, de uma fiscalização ou do próprio negócio — nada fica engessado no plano inicial.'
     ];
     var methodSteps = document.querySelectorAll('#methodRow .m-step');
     var methodDetailK = document.getElementById('methodDetailK');
