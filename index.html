@@ -96,6 +96,19 @@
   .btn-ghost{ background:transparent; border-color:var(--border); color:var(--ink); }
   .btn-ghost:hover{ border-color:var(--gold); }
 
+  /* Theme toggle */
+  .theme-toggle{
+    display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px;
+    border-radius:50%; border:1px solid var(--border); background:var(--surface); color:var(--gold-dark);
+    cursor:pointer; flex-shrink:0; transition:border-color .15s ease, transform .15s ease;
+  }
+  .theme-toggle:hover{ border-color:var(--gold); }
+  .theme-toggle:active{ transform:scale(0.92); }
+  .theme-toggle svg{ width:18px; height:18px; display:block; }
+  .theme-toggle .icon-moon{ display:none; }
+  .theme-toggle.is-dark .icon-sun{ display:none; }
+  .theme-toggle.is-dark .icon-moon{ display:block; }
+
   /* Reveal-on-scroll (progressive enhancement; content is fully visible without JS) */
   @media (prefers-reduced-motion: no-preference){
     html.reveal-ready [data-reveal]{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
@@ -158,6 +171,18 @@
   .flow-step b{ font-size:14px; color:var(--ink); font-weight:700; }
   .flow-step small{ display:block; font-size:12px; color:var(--muted); margin-top:1px; }
   .hero-panel .cite{ margin-top:18px; padding-top:16px; border-top:1px solid var(--border); font-size:11.5px; color:var(--muted); font-style:italic; line-height:1.5; }
+  @media (prefers-reduced-motion: no-preference){
+    @keyframes stepGlow{ 0%,88%,100%{ box-shadow:none; } 4%,8%{ box-shadow:0 0 0 5px var(--gold-soft); } }
+    .flow-step:nth-child(1) .flow-num{ animation:stepGlow 9s ease-in-out infinite; }
+    .flow-step:nth-child(2) .flow-num{ animation:stepGlow 9s ease-in-out infinite 1.5s; }
+    .flow-step:nth-child(3) .flow-num{ animation:stepGlow 9s ease-in-out infinite 3s; }
+    .flow-step:nth-child(4) .flow-num{ animation:stepGlow 9s ease-in-out infinite 4.5s; }
+    .flow-step:nth-child(5) .flow-num{ animation:stepGlow 9s ease-in-out infinite 6s; }
+    .flow-step:nth-child(6) .flow-num{ animation:stepGlow 9s ease-in-out infinite 7.5s; }
+  }
+
+  /* Subtle pointer-tilt on premium surfaces (desktop, fine pointer, motion allowed) */
+  .hero-panel{ transition:border-color .15s ease, box-shadow .15s ease, transform .12s ease; transform-style:preserve-3d; will-change:transform; }
 
   /* Norm strip */
   .norms{ border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--surface-2); }
@@ -174,7 +199,8 @@
   .grid-services{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
   .svc{
     background:var(--surface); border:1px solid var(--border); border-radius:14px;
-    transition:border-color .15s ease, box-shadow .15s ease;
+    transition:border-color .15s ease, box-shadow .15s ease, transform .12s ease;
+    transform-style:preserve-3d; will-change:transform;
   }
   .svc:hover{ border-color:var(--gold); box-shadow:0 10px 28px var(--shadow); }
   .svc-head{ all:unset; box-sizing:border-box; display:block; width:100%; padding:26px; cursor:pointer; border-radius:14px; }
@@ -195,11 +221,25 @@
   /* Method strip */
   .method{ background:var(--surface-2); }
   .method-row{ display:flex; gap:0; overflow-x:auto; padding-bottom:6px; scrollbar-width:thin; }
-  .m-step{ flex:1 0 150px; padding:22px 18px; position:relative; border-right:1px dashed var(--border); }
+  .m-step{
+    all:unset; box-sizing:border-box; display:block; text-align:left; cursor:pointer;
+    flex:1 0 150px; padding:22px 18px; position:relative; border-right:1px dashed var(--border);
+    border-radius:10px 10px 0 0; transition:background .2s ease;
+  }
   .m-step:last-child{ border-right:none; }
-  .m-step .k{ font-family:'Playfair Display',serif; font-size:22px; color:var(--gold); font-weight:700; display:block; margin-bottom:10px; }
+  .m-step:hover{ background:var(--gold-soft); }
+  .m-step:focus-visible{ outline:2px solid var(--gold); outline-offset:-2px; }
+  .m-step.active{ background:var(--gold-soft); }
+  .m-step.active .k{ color:var(--gold-dark); }
+  .m-step .k{ font-family:'Playfair Display',serif; font-size:22px; color:var(--gold); font-weight:700; display:block; margin-bottom:10px; transition:color .2s ease; }
   .m-step b{ display:block; font-size:14px; color:var(--ink); margin-bottom:5px; }
   .m-step small{ font-size:12px; color:var(--muted); line-height:1.45; }
+  .method-detail{
+    display:flex; gap:16px; align-items:flex-start; margin-top:4px; background:var(--surface);
+    border:1px solid var(--border); border-radius:0 0 14px 14px; padding:22px 26px;
+  }
+  .method-detail-k{ font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--gold); flex-shrink:0; }
+  .method-detail p{ margin:0; font-size:14px; line-height:1.7; color:var(--text); }
   .method-epigraph{ margin-top:30px; font-family:'Playfair Display',serif; font-style:italic; font-size:15.5px; color:var(--text); border-left:3px solid var(--gold); padding-left:18px; max-width:640px; }
   .method-epigraph cite{ display:block; font-family:'Poppins',sans-serif; font-style:normal; font-size:11.5px; color:var(--muted); margin-top:8px; letter-spacing:0.03em; }
 
@@ -335,6 +375,10 @@
       <a href="#contato">Contato</a>
     </nav>
     <div class="nav-cta">
+      <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro/escuro" aria-pressed="false" title="Alternar tema">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.4M12 19.6V22M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2 12h2.4M19.6 12H22M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.3A8.5 8.5 0 1 1 9.7 4a7 7 0 0 0 10.3 10.3z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
       <a class="btn btn-primary" href="https://wa.me/5521983884842" target="_blank" rel="noopener">Falar com a equipe</a>
       <button class="burger" id="burgerBtn" aria-label="Abrir menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -561,13 +605,17 @@
         <div class="eyebrow">Método</div>
         <h2>Um relato só vira decisão depois de passar por seis filtros</h2>
       </div>
-      <div class="method-row" data-reveal>
-        <div class="m-step"><span class="k">01</span><b>Relato</b><small>Registro do que foi comunicado e por qual canal chegou.</small></div>
-        <div class="m-step"><span class="k">02</span><b>Hipótese</b><small>Identificação da norma ou dever supostamente descumprido.</small></div>
-        <div class="m-step"><span class="k">03</span><b>Questão</b><small>Definição do que precisa ser esclarecido no caso concreto.</small></div>
-        <div class="m-step"><span class="k">04</span><b>Evidência</b><small>Reunião de documentos, sistemas e depoimentos pertinentes.</small></div>
-        <div class="m-step"><span class="k">05</span><b>Diligência</b><small>Verificação ativa dos fatos, com contraditório quando cabível.</small></div>
-        <div class="m-step"><span class="k">06</span><b>Conclusão</b><small>Relatório fundamentado e providência proporcional à gravidade.</small></div>
+      <div class="method-row" data-reveal id="methodRow">
+        <button class="m-step active" aria-expanded="true"><span class="k">01</span><b>Relato</b><small>Registro do que foi comunicado e por qual canal chegou.</small></button>
+        <button class="m-step" aria-expanded="false"><span class="k">02</span><b>Hipótese</b><small>Identificação da norma ou dever supostamente descumprido.</small></button>
+        <button class="m-step" aria-expanded="false"><span class="k">03</span><b>Questão</b><small>Definição do que precisa ser esclarecido no caso concreto.</small></button>
+        <button class="m-step" aria-expanded="false"><span class="k">04</span><b>Evidência</b><small>Reunião de documentos, sistemas e depoimentos pertinentes.</small></button>
+        <button class="m-step" aria-expanded="false"><span class="k">05</span><b>Diligência</b><small>Verificação ativa dos fatos, com contraditório quando cabível.</small></button>
+        <button class="m-step" aria-expanded="false"><span class="k">06</span><b>Conclusão</b><small>Relatório fundamentado e providência proporcional à gravidade.</small></button>
+      </div>
+      <div class="method-detail" data-reveal>
+        <span class="method-detail-k" id="methodDetailK">01</span>
+        <p id="methodDetailText">Registramos o que foi comunicado, por quem e por qual canal — e-mail, canal de ética, denúncia verbal ou anônima — preservando o relato original antes de qualquer interpretação.</p>
       </div>
       <div class="method-epigraph" data-reveal>
         “Dividir cada uma das dificuldades que eu examinasse em tantas partes quantas fosse possível, para melhor resolvê-las.”
@@ -781,6 +829,72 @@
         btn.closest('.svc').classList.toggle('expanded', !expanded);
       });
     });
+
+    // Theme toggle (persisted per viewer; falls back to system preference)
+    var themeToggle = document.getElementById('themeToggle');
+    function isDarkResolved(){
+      var explicit = document.documentElement.getAttribute('data-theme');
+      if (explicit) return explicit === 'dark';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function syncToggleIcon(){
+      if (!themeToggle) return;
+      var dark = isDarkResolved();
+      themeToggle.classList.toggle('is-dark', dark);
+      themeToggle.setAttribute('aria-pressed', String(dark));
+    }
+    (function initTheme(){
+      var saved = null;
+      try { saved = localStorage.getItem('psa-theme'); } catch (e) {}
+      if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+      syncToggleIcon();
+    })();
+    if (themeToggle){
+      themeToggle.addEventListener('click', function(){
+        var next = isDarkResolved() ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('psa-theme', next); } catch (e) {}
+        syncToggleIcon();
+      });
+    }
+
+    // Método: click a step to reveal its expanded explanation
+    var methodDetails = [
+      'Registramos o que foi comunicado, por quem e por qual canal — e-mail, canal de ética, denúncia verbal ou anônima — preservando o relato original antes de qualquer interpretação.',
+      'Delimitamos qual norma, política interna ou dever pode ter sido violado, definindo o escopo da apuração antes de reunir qualquer prova.',
+      'Definimos o que precisa ser esclarecido no caso concreto: o fato a confirmar ou afastar, e a prova capaz de sustentar essa conclusão.',
+      'Reunimos documentos, sistemas, registros e depoimentos pertinentes, com cadeia de custódia documentada e critério claro de admissibilidade.',
+      'Verificamos os fatos de forma ativa — sem pressa e sem atalho —, ouvindo as partes envolvidas e assegurando o contraditório quando cabível.',
+      'Registramos a fundamentação da decisão e indicamos a providência proporcional à gravidade apurada, documentando cada etapa do raciocínio.'
+    ];
+    var methodSteps = document.querySelectorAll('#methodRow .m-step');
+    var methodDetailK = document.getElementById('methodDetailK');
+    var methodDetailText = document.getElementById('methodDetailText');
+    methodSteps.forEach(function(btn, i){
+      btn.addEventListener('click', function(){
+        methodSteps.forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-expanded', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+        if (methodDetailK) methodDetailK.textContent = String(i + 1).padStart(2, '0');
+        if (methodDetailText) methodDetailText.textContent = methodDetails[i];
+      });
+    });
+
+    // Subtle pointer-tilt on premium surfaces (desktop, fine pointer, motion allowed)
+    if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+      var tiltEls = document.querySelectorAll('.svc, .hero-panel');
+      tiltEls.forEach(function(el){
+        el.addEventListener('mousemove', function(e){
+          var r = el.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width;
+          var py = (e.clientY - r.top) / r.height;
+          var rx = (py - 0.5) * -5;
+          var ry = (px - 0.5) * 5;
+          el.style.transform = 'perspective(800px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+        });
+        el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
+      });
+    }
   })();
 </script>
 </body>
