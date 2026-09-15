@@ -3,71 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 130 100%27%3E%3Ctext x=%2738%27 y=%2780%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2796%27 text-anchor=%27middle%27 fill=%27%238A6F3D%27%3EP%3C/text%3E%3Ctext x=%2792%27 y=%2780%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2796%27 text-anchor=%27middle%27 fill=%27%23AC8E53%27%3EA%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 130 100%27%3E%3Cpath d=%27M100 14C60 6 40 30 66 45C96 62 90 88 46 90%27 stroke=%27%23AE9E7F%27 stroke-width=%2716%27 stroke-linecap=%27round%27 fill=%27none%27/%3E%3Ctext x=%2734%27 y=%2780%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2792%27 fill=%27%236B3D34%27%3EP%3C/text%3E%3Ctext x=%2772%27 y=%2780%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2792%27 fill=%27%236B3D34%27%3EA%3C/text%3E%3C/svg%3E">
 <title>PSA Compliance</title>
-<meta name="description" content="PSA Advocacia Empresarial: programas de integridade, código de conduta, comitês de ética, canais de denúncia e apuração de relatos para empresas e conselhos.">
+<meta name="description" content="PSA Advocacia Empresarial: programas de integridade, código de conduta, comitês de ética, canais de denúncia, apuração de relatos e treinamento de comitês para empresas e conselhos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FAF8F4;
+    --bg:#F4EEE2;
     --surface:#FFFFFF;
-    --surface-2:#F3EEE3;
-    --ink:#241F18;
-    --text:#4A4238;
+    --surface-2:#EBE0CB;
+    --ink:#2E241D;
+    --text:#4A3F35;
     --muted:#8C8172;
-    --gold:#AC8E53;
-    --gold-dark:#8A6F3D;
-    --gold-soft:rgba(172,142,83,0.10);
-    --border:#E8E1D3;
-    --shadow:rgba(36,31,24,0.10);
+    --gold:#A67E62;
+    --gold-dark:#6B3D34;
+    --gold-soft:rgba(166,126,98,0.12);
+    --khaki:#AE9E7F;
+    --forest:#3C6B22;
+    --on-gold-dark:#FFF8EF;
+    --border:#E1D4BE;
+    --shadow:rgba(43,31,23,0.12);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#18140F;
-      --surface:#221D16;
-      --surface-2:#2A231A;
-      --ink:#F3ECDD;
-      --text:#D6CCB9;
-      --muted:#9C9080;
-      --gold:#CDAD76;
-      --gold-dark:#E3C48E;
-      --gold-soft:rgba(205,173,118,0.14);
-      --border:#3B3122;
-      --shadow:rgba(0,0,0,0.35);
+      --bg:#1B140E;
+      --surface:#241B14;
+      --surface-2:#2E2318;
+      --ink:#F1E7DA;
+      --text:#DCCEBC;
+      --muted:#A8987F;
+      --gold:#C9A07C;
+      --gold-dark:#E4B29C;
+      --gold-soft:rgba(201,160,124,0.14);
+      --khaki:#C9B896;
+      --forest:#7FB35C;
+      --on-gold-dark:#2B160E;
+      --border:#3E301F;
+      --shadow:rgba(0,0,0,0.4);
     }
   }
   :root[data-theme="dark"]{
-    --bg:#18140F;
-    --surface:#221D16;
-    --surface-2:#2A231A;
-    --ink:#F3ECDD;
-    --text:#D6CCB9;
-    --muted:#9C9080;
-    --gold:#CDAD76;
-    --gold-dark:#E3C48E;
-    --gold-soft:rgba(205,173,118,0.14);
-    --border:#3B3122;
-    --shadow:rgba(0,0,0,0.35);
+    --bg:#1B140E;
+    --surface:#241B14;
+    --surface-2:#2E2318;
+    --ink:#F1E7DA;
+    --text:#DCCEBC;
+    --muted:#A8987F;
+    --gold:#C9A07C;
+    --gold-dark:#E4B29C;
+    --gold-soft:rgba(201,160,124,0.14);
+    --khaki:#C9B896;
+    --forest:#7FB35C;
+    --on-gold-dark:#2B160E;
+    --border:#3E301F;
+    --shadow:rgba(0,0,0,0.4);
   }
 
   *{ box-sizing:border-box; }
   html{ -webkit-text-size-adjust:100%; }
+  @media (prefers-reduced-motion: no-preference){ html{ scroll-behavior:smooth; } }
   body{
     margin:0;
     background:var(--bg);
     color:var(--text);
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-family:'Poppins',-apple-system,BlinkMacSystemFont,sans-serif;
     padding-inline:0;
     overflow-x:hidden;
   }
   img{ max-width:100%; display:block; }
   a{ color:inherit; text-decoration:none; }
   ul{ list-style:none; margin:0; padding:0; }
-  .wrap{ max-width:1120px; margin:0 auto; padding-inline:24px; }
+  .wrap{ max-width:1120px; margin:0 auto; padding-inline:24px; position:relative; }
   section{ padding-block:76px; }
-  h1,h2,h3{ font-family:'Playfair Display',Georgia,serif; color:var(--ink); text-wrap:balance; margin:0; }
+  h1,h2,h3{ font-family:'Playfair Display',Georgia,serif; color:var(--gold-dark); text-wrap:balance; margin:0; }
   .eyebrow{
     font-size:11.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
     color:var(--gold-dark); margin-bottom:14px; display:flex; align-items:center; gap:10px;
@@ -76,17 +86,25 @@
   .lede{ font-size:17px; line-height:1.7; color:var(--muted); max-width:60ch; }
   .btn{
     display:inline-flex; align-items:center; gap:8px;
-    font-family:'Inter',sans-serif; font-weight:700; font-size:13.5px; letter-spacing:0.02em;
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; letter-spacing:0.02em;
     padding:14px 24px; border-radius:8px; cursor:pointer; border:1px solid transparent;
     transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
   }
   .btn:active{ transform:translateY(1px); }
-  .btn-primary{ background:var(--gold-dark); color:#FFF9EF; }
+  .btn-primary{ background:var(--gold-dark); color:var(--on-gold-dark); }
   .btn-primary:hover{ box-shadow:0 8px 22px var(--shadow); }
-  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .btn-primary{ color:#20180D; } }
-  :root[data-theme="dark"] .btn-primary{ color:#20180D; }
   .btn-ghost{ background:transparent; border-color:var(--border); color:var(--ink); }
   .btn-ghost:hover{ border-color:var(--gold); }
+
+  /* Reveal-on-scroll (progressive enhancement; content is fully visible without JS) */
+  @media (prefers-reduced-motion: no-preference){
+    html.reveal-ready [data-reveal]{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+    html.reveal-ready [data-reveal].in-view{ opacity:1; transform:none; }
+  }
+
+  /* Scroll progress */
+  .scrollbar{ height:3px; background:transparent; }
+  .scrollbar-fill{ height:100%; width:0%; background:linear-gradient(90deg,var(--gold),var(--gold-dark)); transform-origin:left; }
 
   /* Header */
   header.site{
@@ -106,22 +124,24 @@
   .brand .word b{ font-family:'Playfair Display',serif; font-weight:700; font-size:15px; letter-spacing:0.03em; color:var(--ink); }
   .brand .word span{ font-size:9.5px; letter-spacing:0.16em; color:var(--muted); text-transform:uppercase; }
   nav.links{ display:flex; align-items:center; gap:30px; }
-  nav.links a{ font-size:13.5px; font-weight:600; color:var(--text); }
+  nav.links a{ font-size:13.5px; font-weight:600; color:var(--text); padding-bottom:3px; border-bottom:2px solid transparent; transition:color .15s ease, border-color .15s ease; }
   nav.links a:hover{ color:var(--gold-dark); }
+  nav.links a.active{ color:var(--gold-dark); border-color:var(--gold); }
   .nav-cta{ display:flex; align-items:center; gap:14px; }
   .burger{ display:none; background:none; border:none; padding:6px; cursor:pointer; }
   .burger span{ display:block; width:22px; height:1.6px; background:var(--ink); margin:5px 0; }
   #mobile-nav{ display:none; }
 
   /* Hero */
-  .hero{ padding-block:64px 56px; }
+  .hero{ padding-block:64px 56px; position:relative; overflow:hidden; }
   .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; }
   .hero h1{ font-size:44px; line-height:1.14; margin-bottom:20px; }
-  .hero h1 em{ font-style:italic; color:var(--gold-dark); }
+  .hero h1 em{ font-style:italic; color:var(--gold); }
   .hero .actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+  .seed-of-life{ position:absolute; pointer-events:none; opacity:0.5; }
   .hero-panel{
     background:var(--surface); border:1px solid var(--border); border-radius:16px;
-    padding:28px; box-shadow:0 18px 46px var(--shadow);
+    padding:28px; box-shadow:0 18px 46px var(--shadow); position:relative; overflow:hidden;
   }
   .hero-panel .flow{ display:flex; flex-direction:column; gap:0; }
   .flow-step{ display:flex; align-items:center; gap:14px; padding-block:11px; position:relative; }
@@ -148,16 +168,27 @@
   .sec-head{ max-width:640px; margin-bottom:44px; }
   .sec-head h2{ font-size:32px; line-height:1.22; margin-top:6px; }
 
-  /* Services grid */
+  /* Services grid (interactive accordion cards) */
   .grid-services{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
   .svc{
-    background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:26px;
+    background:var(--surface); border:1px solid var(--border); border-radius:14px;
     transition:border-color .15s ease, box-shadow .15s ease;
   }
   .svc:hover{ border-color:var(--gold); box-shadow:0 10px 28px var(--shadow); }
+  .svc-head{ all:unset; box-sizing:border-box; display:block; width:100%; padding:26px; cursor:pointer; border-radius:14px; }
+  .svc-head:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+  .svc-head-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
   .svc .n{ font-family:'Playfair Display',serif; font-size:13px; color:var(--gold-dark); font-weight:700; margin-bottom:14px; }
   .svc h3{ font-size:17.5px; margin-bottom:9px; line-height:1.3; }
   .svc p{ font-size:13.8px; line-height:1.6; color:var(--muted); margin:0; }
+  .svc-chev{ flex-shrink:0; width:20px; height:20px; color:var(--gold); transition:transform .3s ease; margin-top:2px; }
+  .svc-head[aria-expanded="true"] .svc-chev{ transform:rotate(180deg); }
+  .svc-more{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s ease; }
+  .svc.expanded .svc-more{ grid-template-rows:1fr; }
+  .svc-more-inner{ overflow:hidden; }
+  .svc-more-pad{ padding:0 26px 26px; border-top:1px solid var(--border); margin-top:2px; padding-top:16px; }
+  .svc-quote{ font-family:'Playfair Display',serif; font-style:italic; font-size:14.5px; line-height:1.55; color:var(--gold-dark); margin:0; }
+  .svc-note{ font-size:13px; line-height:1.6; color:var(--muted); margin:0; }
 
   /* Method strip */
   .method{ background:var(--surface-2); }
@@ -168,7 +199,7 @@
   .m-step b{ display:block; font-size:14px; color:var(--ink); margin-bottom:5px; }
   .m-step small{ font-size:12px; color:var(--muted); line-height:1.45; }
   .method-epigraph{ margin-top:30px; font-family:'Playfair Display',serif; font-style:italic; font-size:15.5px; color:var(--text); border-left:3px solid var(--gold); padding-left:18px; max-width:640px; }
-  .method-epigraph cite{ display:block; font-family:'Inter',sans-serif; font-style:normal; font-size:11.5px; color:var(--muted); margin-top:8px; letter-spacing:0.03em; }
+  .method-epigraph cite{ display:block; font-family:'Poppins',sans-serif; font-style:normal; font-size:11.5px; color:var(--muted); margin-top:8px; letter-spacing:0.03em; }
 
   /* Differentiators */
   .diff-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
@@ -177,19 +208,27 @@
   .diff-grid .item .idx{ font-size:11px; letter-spacing:0.12em; color:var(--gold-dark); font-weight:700; margin-bottom:12px; display:block; }
 
   /* About */
-  .about{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:48px; align-items:center; }
+  .about{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:48px; align-items:start; }
+  .avatar-wrap{ position:relative; max-width:260px; }
   .avatar{
-    width:100%; aspect-ratio:1/1; max-width:220px; border-radius:16px;
-    background:linear-gradient(155deg, var(--gold-soft), transparent), var(--surface-2);
-    border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
-    padding:36px;
+    width:100%; aspect-ratio:3/4; border-radius:16px; overflow:hidden;
+    border:1px solid var(--border); box-shadow:0 18px 40px var(--shadow);
   }
-  .avatar svg{ width:100%; height:100%; display:block; }
-  .about-quote{ font-family:'Playfair Display',serif; font-size:19px; line-height:1.5; color:var(--ink); font-style:italic; margin-bottom:16px; }
+  .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .badge-award{
+    position:absolute; left:-14px; bottom:-16px; background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:10px 14px; box-shadow:0 10px 24px var(--shadow); max-width:190px;
+  }
+  .badge-award b{ display:block; font-size:12px; color:var(--gold-dark); font-family:'Playfair Display',serif; }
+  .badge-award span{ display:block; font-size:10.5px; color:var(--muted); margin-top:2px; letter-spacing:0.02em; }
+  .about-quote{ font-family:'Playfair Display',serif; font-size:19px; line-height:1.5; color:var(--gold-dark); font-style:italic; margin-bottom:18px; }
   .about-name b{ font-size:14.5px; color:var(--ink); }
   .about-name span{ display:block; font-size:12.5px; color:var(--muted); margin-top:2px; }
-  .about-links{ display:flex; gap:16px; margin-top:16px; }
+  .about-bio{ font-size:13.8px; line-height:1.7; color:var(--text); margin:16px 0 0; }
+  .about-bio + .about-bio{ margin-top:10px; }
+  .about-links{ display:flex; gap:16px; margin-top:18px; }
   .about-links a{ font-size:12.5px; color:var(--gold-dark); font-weight:600; }
+  .sector-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top:18px; }
 
   /* Insights */
   .insights-card{
@@ -201,7 +240,7 @@
   .topics{ display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
   .topic-tag{
     font-size:10.5px; font-weight:700; letter-spacing:0.03em; color:var(--gold-dark);
-    background:var(--gold-soft); border:1px solid rgba(172,142,83,0.3); border-radius:999px; padding:4px 11px;
+    background:var(--gold-soft); border:1px solid rgba(166,126,98,0.3); border-radius:999px; padding:4px 11px;
   }
 
   /* Contact */
@@ -243,6 +282,7 @@
     .diff-grid{ grid-template-columns:1fr; gap:26px; }
     nav.links{ display:none; }
     .burger{ display:block; }
+    .avatar-wrap{ max-width:220px; }
   }
   @media (max-width: 900px){
     #mobile-nav.open{
@@ -260,6 +300,7 @@
     .norms .wrap{ gap:16px; }
     .contact h2{ font-size:24px; }
     .insights-card{ padding:26px 22px; }
+    .badge-award{ left:8px; bottom:-14px; }
   }
 </style>
 </head>
@@ -269,19 +310,14 @@
     <a href="#top" class="brand">
       <span class="mono" aria-hidden="true">
         <svg viewBox="0 0 130 100" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="pa-grad-nav" x1="0" y1="0" x2="0.7" y2="1">
-              <stop offset="0%" stop-color="#E4CE9B"/>
-              <stop offset="100%" stop-color="#8A6F3D"/>
-            </linearGradient>
-          </defs>
-          <text x="38" y="80" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="96" text-anchor="middle" fill="url(#pa-grad-nav)">P</text>
-          <text x="92" y="80" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="96" text-anchor="middle" fill="url(#pa-grad-nav)" opacity="0.88">A</text>
+          <path d="M100 14C60 6 40 30 66 45C96 62 90 88 46 90" stroke="var(--khaki)" stroke-width="16" stroke-linecap="round" fill="none"/>
+          <text x="34" y="80" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="92" fill="var(--gold-dark)">P</text>
+          <text x="72" y="80" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="92" fill="var(--gold-dark)">A</text>
         </svg>
       </span>
       <span class="word"><b>PSA Advocacia</b><span>Empresarial</span></span>
     </a>
-    <nav class="links">
+    <nav class="links" id="deskNav">
       <a href="#compliance">Compliance</a>
       <a href="#metodo">Método</a>
       <a href="#areas">Áreas</a>
@@ -302,10 +338,17 @@
     <a href="#sobre">Sobre</a>
     <a href="#contato">Contato</a>
   </nav>
+  <div class="scrollbar" aria-hidden="true"><div class="scrollbar-fill" id="scrollFill"></div></div>
 </header>
 
 <main id="top">
   <section class="hero">
+    <svg class="seed-of-life" viewBox="0 0 120 120" width="150" height="150" style="top:-30px; right:-20px;" aria-hidden="true">
+      <g fill="none" stroke="var(--khaki)" stroke-width="1">
+        <circle cx="60" cy="60" r="20"/><circle cx="80" cy="60" r="20"/><circle cx="70" cy="77.32" r="20"/>
+        <circle cx="50" cy="77.32" r="20"/><circle cx="40" cy="60" r="20"/><circle cx="50" cy="42.68" r="20"/><circle cx="70" cy="42.68" r="20"/>
+      </g>
+    </svg>
     <div class="wrap hero-grid">
       <div data-reveal>
         <div class="eyebrow">Direito Empresarial &amp; Compliance</div>
@@ -351,49 +394,147 @@
 
       <div class="grid-services">
         <div class="svc" data-reveal>
-          <div class="n">01</div>
-          <h3>Programas de integridade</h3>
-          <p>Desenho e implementação de programas nos parâmetros do Decreto nº 11.129/2022: mapeamento de riscos, controles internos e plano de ação sob medida para o porte e o setor da empresa.</p>
+          <button class="svc-head" aria-expanded="false" aria-controls="svc-01">
+            <div class="svc-head-row">
+              <div>
+                <div class="n">01</div>
+                <h3>Programas de integridade</h3>
+                <p>Desenho e implementação de programas nos parâmetros do Decreto nº 11.129/2022: mapeamento de riscos, controles internos e plano de ação sob medida para o porte e o setor da empresa.</p>
+              </div>
+              <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </button>
+          <div class="svc-more" id="svc-01"><div class="svc-more-inner"><div class="svc-more-pad">
+            <p class="svc-quote">"É impossível deliberar com ética sem compreender a estrutura institucional que sustenta essas decisões."</p>
+          </div></div></div>
         </div>
+
         <div class="svc" data-reveal>
-          <div class="n">02</div>
-          <h3>Código de conduta e políticas</h3>
-          <p>Elaboração e revisão de código de conduta, políticas de conflito de interesses, presentes e brindes, relacionamento com terceiros e segurança da informação, com linguagem aplicável ao dia a dia.</p>
+          <button class="svc-head" aria-expanded="false" aria-controls="svc-02">
+            <div class="svc-head-row">
+              <div>
+                <div class="n">02</div>
+                <h3>Código de conduta e políticas</h3>
+                <p>Elaboração e revisão de código de conduta, políticas de conflito de interesses, presentes e brindes, relacionamento com terceiros e segurança da informação, com linguagem aplicável ao dia a dia.</p>
+              </div>
+              <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </button>
+          <div class="svc-more" id="svc-02"><div class="svc-more-inner"><div class="svc-more-pad">
+            <p class="svc-quote">"O Comitê não cria regras, mas garante que os princípios do Código orientem as decisões institucionais."</p>
+          </div></div></div>
         </div>
+
         <div class="svc" data-reveal>
-          <div class="n">03</div>
-          <h3>Comitês de ética</h3>
-          <p>Estruturação de regimentos, capacitação de membros e assessoria continuada a comitês de conduta ética e comitês do conselho de administração na análise e deliberação de casos.</p>
+          <button class="svc-head" aria-expanded="false" aria-controls="svc-03">
+            <div class="svc-head-row">
+              <div>
+                <div class="n">03</div>
+                <h3>Comitês de ética</h3>
+                <p>Estruturação de regimentos, capacitação de membros e assessoria continuada a comitês de conduta ética e comitês do conselho de administração na análise e deliberação de casos.</p>
+              </div>
+              <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </button>
+          <div class="svc-more" id="svc-03"><div class="svc-more-inner"><div class="svc-more-pad">
+            <p class="svc-quote">"A atuação multidisciplinar dos membros fortalece a consistência e a imparcialidade das decisões do Comitê."</p>
+          </div></div></div>
         </div>
+
         <div class="svc" data-reveal>
-          <div class="n">04</div>
-          <h3>Canais de denúncia e apuração</h3>
-          <p>Implantação de canal de ética, definição de fluxo de triagem e condução ou acompanhamento de investigações internas, da hipótese à conclusão fundamentada.</p>
+          <button class="svc-head" aria-expanded="false" aria-controls="svc-04">
+            <div class="svc-head-row">
+              <div>
+                <div class="n">04</div>
+                <h3>Canais de denúncia e apuração</h3>
+                <p>Implantação de canal de ética, definição de fluxo de triagem e condução ou acompanhamento de investigações internas, da hipótese à conclusão fundamentada.</p>
+              </div>
+              <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </button>
+          <div class="svc-more" id="svc-04"><div class="svc-more-inner"><div class="svc-more-pad">
+            <p class="svc-quote">"Comitê é parte da estrutura que garante a credibilidade institucional do Canal de Ética."</p>
+          </div></div></div>
         </div>
+
         <div class="svc" data-reveal>
-          <div class="n">05</div>
-          <h3>Assédio e discriminação</h3>
-          <p>Diagnóstico e resposta a relatos de assédio moral, sexual e eleitoral no ambiente de trabalho, com metodologia de análise de contexto, recorrência e efeitos.</p>
+          <button class="svc-head" aria-expanded="false" aria-controls="svc-05">
+            <div class="svc-head-row">
+              <div>
+                <div class="n">05</div>
+                <h3>Assédio e discriminação</h3>
+                <p>Diagnóstico e resposta a relatos de assédio moral, sexual e eleitoral no ambiente de trabalho, com metodologia de análise de contexto, recorrência e efeitos.</p>
+              </div>
+              <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </button>
+          <div class="svc-more" id="svc-05"><div class="svc-more-inner"><div class="svc-more-pad">
+            <p class="svc-note">Inclui prevenção ao assédio eleitoral no ambiente de trabalho, protegendo a liberdade de escolha dos colaboradores e orientando comitês na condução de denúncias sensíveis.</p>
+          </div></div></div>
         </div>
+
         <div class="svc" data-reveal>
-          <div class="n">06</div>
-          <h3>Devida diligência de terceiros</h3>
-          <p>Avaliação de fornecedores, parceiros e representantes antes e durante a relação contratual, com foco em integridade, direitos humanos e reputação.</p>
+          <button class="svc-head" aria-expanded="false" aria-controls="svc-06">
+            <div class="svc-head-row">
+              <div>
+                <div class="n">06</div>
+                <h3>Devida diligência de terceiros</h3>
+                <p>Avaliação de fornecedores, parceiros e representantes antes e durante a relação contratual, com foco em integridade, direitos humanos e reputação.</p>
+              </div>
+              <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </button>
+          <div class="svc-more" id="svc-06"><div class="svc-more-inner"><div class="svc-more-pad">
+            <p class="svc-note">Metodologia aplicada em setores como energia, óleo e gás, mercado de capitais, saúde, logística, transporte e entretenimento, com apoio de background checks e avaliações de risco.</p>
+          </div></div></div>
         </div>
+
         <div class="svc" data-reveal>
-          <div class="n">07</div>
-          <h3>Proteção de dados</h3>
-          <p>Adequação à LGPD em processos de investigação e gestão de canais de ética, conciliando apuração eficaz com finalidade legítima e minimização de dados.</p>
+          <button class="svc-head" aria-expanded="false" aria-controls="svc-07">
+            <div class="svc-head-row">
+              <div>
+                <div class="n">07</div>
+                <h3>Proteção de dados</h3>
+                <p>Adequação à LGPD em processos de investigação e gestão de canais de ética, conciliando apuração eficaz com finalidade legítima e minimização de dados.</p>
+              </div>
+              <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </button>
+          <div class="svc-more" id="svc-07"><div class="svc-more-inner"><div class="svc-more-pad">
+            <p class="svc-quote">"A governança e a confidencialidade das informações protegem o processo decisório e reduzem a personalização do risco reputacional."</p>
+          </div></div></div>
         </div>
+
         <div class="svc" data-reveal>
-          <div class="n">08</div>
-          <h3>Treinamento e cultura</h3>
-          <p>Capacitação de conselheiros, diretores, comitês e equipes em conduta ética, tomada de decisão e prevenção de irregularidades, com estudos de caso reais do setor.</p>
+          <button class="svc-head" aria-expanded="false" aria-controls="svc-08">
+            <div class="svc-head-row">
+              <div>
+                <div class="n">08</div>
+                <h3>Treinamento e cultura</h3>
+                <p>Capacitação de conselheiros, diretores, comitês e equipes em conduta ética, tomada de decisão e prevenção de irregularidades, com estudos de caso reais do setor.</p>
+              </div>
+              <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </button>
+          <div class="svc-more" id="svc-08"><div class="svc-more-inner"><div class="svc-more-pad">
+            <p class="svc-quote">"Uma cultura de integridade organizacional depende da confiança percebida naqueles que conduzem as decisões."</p>
+          </div></div></div>
         </div>
+
         <div class="svc" data-reveal>
-          <div class="n">09</div>
-          <h3>Resposta a incidentes</h3>
-          <p>Apoio em situações de crise envolvendo corrupção, fraude ou vazamento, incluindo interlocução com autoridades quando houver indício de ilícito penal.</p>
+          <button class="svc-head" aria-expanded="false" aria-controls="svc-09">
+            <div class="svc-head-row">
+              <div>
+                <div class="n">09</div>
+                <h3>Resposta a incidentes</h3>
+                <p>Apoio em situações de crise envolvendo corrupção, fraude ou vazamento, incluindo interlocução com autoridades quando houver indício de ilícito penal.</p>
+              </div>
+              <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </button>
+          <div class="svc-more" id="svc-09"><div class="svc-more-inner"><div class="svc-more-pad">
+            <p class="svc-quote">"Quando há dever de agir, a omissão diante de uma transgressão também pode caracterizar participação na conduta e comprometer a integridade institucional."</p>
+          </div></div></div>
         </div>
       </div>
     </div>
@@ -449,17 +590,14 @@
   <section id="sobre">
     <div class="wrap about">
       <div data-reveal>
-        <div class="avatar">
-          <svg viewBox="0 0 130 100" xmlns="http://www.w3.org/2000/svg" aria-label="Monograma PSA">
-            <defs>
-              <linearGradient id="pa-grad-about" x1="0" y1="0" x2="0.7" y2="1">
-                <stop offset="0%" stop-color="#E4CE9B"/>
-                <stop offset="100%" stop-color="#8A6F3D"/>
-              </linearGradient>
-            </defs>
-            <text x="38" y="80" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="96" text-anchor="middle" fill="url(#pa-grad-about)">P</text>
-            <text x="92" y="80" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="96" text-anchor="middle" fill="url(#pa-grad-about)" opacity="0.88">A</text>
-          </svg>
+        <div class="avatar-wrap">
+          <div class="avatar">
+            <img src="assets/priscila-alves.jpg" alt="Priscila Alves, sócia da PSA Advocacia Empresarial">
+          </div>
+          <div class="badge-award">
+            <b>Leaders League Brasil 2025</b>
+            <span>Reconhecimento em Compliance &amp; Investigações</span>
+          </div>
         </div>
       </div>
       <div data-reveal>
@@ -468,6 +606,17 @@
         <div class="about-name">
           <b>Priscila Alves</b>
           <span>Sócia responsável pela área de Compliance &amp; Governança — PSA Advocacia Empresarial</span>
+        </div>
+        <p class="about-bio">Advogada com atuação especializada em compliance, governança corporativa e investigações internas, com experiência no assessoramento jurídico de empresas nacionais e internacionais em integridade corporativa, gestão de riscos e responsabilização jurídica.</p>
+        <p class="about-bio">Já coordenou investigações corporativas, análise de denúncias e gestão de canais de ética, além de projetos de implementação de programas de compliance, due diligence, background checks e avaliação de risco. No campo sancionador, atua junto a processos administrativos e criminais empresariais, incluindo processos junto à Comissão de Valores Mobiliários (CVM) e Tribunais de Contas.</p>
+        <div class="sector-tags" aria-label="Setores de atuação">
+          <span class="topic-tag">Energia</span>
+          <span class="topic-tag">Óleo &amp; Gás</span>
+          <span class="topic-tag">Mercado de Capitais</span>
+          <span class="topic-tag">Saúde</span>
+          <span class="topic-tag">Logística</span>
+          <span class="topic-tag">Transporte</span>
+          <span class="topic-tag">Entretenimento</span>
         </div>
         <div class="about-links">
           <a href="https://www.linkedin.com/in/priscilaalvespsa" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -553,6 +702,67 @@
     });
     mnav.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click', function(){ mnav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
+    });
+
+    // Scroll progress bar
+    var fill = document.getElementById('scrollFill');
+    function updateProgress(){
+      var h = document.documentElement;
+      var scrolled = h.scrollTop || document.body.scrollTop;
+      var height = h.scrollHeight - h.clientHeight;
+      var pct = height > 0 ? (scrolled / height) * 100 : 0;
+      if (fill) fill.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    // Reveal-on-scroll (progressive enhancement)
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion){
+      document.documentElement.classList.add('reveal-ready');
+      if ('IntersectionObserver' in window){
+        var revealObserver = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            if (entry.isIntersecting){
+              entry.target.classList.add('in-view');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('[data-reveal]').forEach(function(el){ revealObserver.observe(el); });
+        // Safety net: never leave content permanently hidden if the observer misses an element.
+        setTimeout(function(){
+          document.querySelectorAll('[data-reveal]:not(.in-view)').forEach(function(el){ el.classList.add('in-view'); });
+        }, 2200);
+      } else {
+        document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('in-view'); });
+      }
+    }
+
+    // Scrollspy
+    var navLinks = document.querySelectorAll('#deskNav a');
+    var sectionIds = ['compliance','metodo','areas','sobre','contato'];
+    var sections = sectionIds.map(function(id){ return document.getElementById(id); }).filter(Boolean);
+    if ('IntersectionObserver' in window && sections.length){
+      var spy = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting){
+            navLinks.forEach(function(a){
+              a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+            });
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+      sections.forEach(function(s){ spy.observe(s); });
+    }
+
+    // Services accordion
+    document.querySelectorAll('.svc-head').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        btn.closest('.svc').classList.toggle('expanded', !expanded);
+      });
     });
   })();
 </script>
