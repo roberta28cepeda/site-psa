@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 130 100%27%3E%3Cpath d=%27M100 14C60 6 40 30 66 45C96 62 90 88 46 90%27 stroke=%27%23AE9E7F%27 stroke-width=%2716%27 stroke-linecap=%27round%27 fill=%27none%27/%3E%3Ctext x=%2734%27 y=%2780%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2792%27 fill=%27%236B3D34%27%3EP%3C/text%3E%3Ctext x=%2772%27 y=%2780%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2792%27 fill=%27%236B3D34%27%3EA%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2750%27 fill=%27%232E0817%27/%3E%3Cpath d=%27M62 30C46 26 36 38 48 45C62 53 58 66 40 68%27 stroke=%27%2393713E%27 stroke-width=%277%27 stroke-linecap=%27round%27 fill=%27none%27/%3E%3Ctext x=%2728%27 y=%2764%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2740%27 fill=%27%23C9A567%27%3EP%3C/text%3E%3Ctext x=%2752%27 y=%2764%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2740%27 fill=%27%23C9A567%27%3EA%3C/text%3E%3C/svg%3E">
 <title>PSA Compliance</title>
 <meta name="description" content="PSA Advocacia Empresarial: programas de integridade, código de conduta, comitês de ética, canais de denúncia, apuração de relatos e treinamento de comitês para empresas e conselhos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,7 +116,7 @@
   .nav-row{ display:flex; align-items:center; justify-content:space-between; padding-block:16px; }
   .brand{ display:flex; align-items:center; gap:11px; }
   .brand .mono{
-    width:40px; height:34px; flex-shrink:0;
+    width:38px; height:38px; flex-shrink:0;
     display:flex; align-items:center; justify-content:center;
   }
   .brand .mono svg{ width:100%; height:100%; display:block; }
@@ -137,7 +137,9 @@
   .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; }
   .hero h1{ font-size:44px; line-height:1.14; margin-bottom:20px; }
   .hero h1 em{ font-style:italic; color:var(--gold); }
-  .hero .actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+  .hero-stats{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:18px; font-size:12.5px; font-weight:600; color:var(--muted); }
+  .hero-stats .dot{ color:var(--gold); font-weight:700; }
+  .hero .actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:26px; }
   .seed-of-life{ position:absolute; pointer-events:none; opacity:0.5; }
   .hero-panel{
     background:var(--surface); border:1px solid var(--border); border-radius:16px;
@@ -309,10 +311,17 @@
   <div class="wrap nav-row">
     <a href="#top" class="brand">
       <span class="mono" aria-hidden="true">
-        <svg viewBox="0 0 130 100" xmlns="http://www.w3.org/2000/svg">
-          <path d="M100 14C60 6 40 30 66 45C96 62 90 88 46 90" stroke="var(--khaki)" stroke-width="16" stroke-linecap="round" fill="none"/>
-          <text x="34" y="80" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="92" fill="var(--gold-dark)">P</text>
-          <text x="72" y="80" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="92" fill="var(--gold-dark)">A</text>
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="seal-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#4A1226"/>
+              <stop offset="100%" stop-color="#22040F"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="50" fill="url(#seal-grad)"/>
+          <path d="M62 30C46 26 36 38 48 45C62 53 58 66 40 68" stroke="#93713E" stroke-width="7" stroke-linecap="round" fill="none"/>
+          <text x="28" y="64" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="40" fill="#C9A567">P</text>
+          <text x="52" y="64" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="40" fill="#C9A567">A</text>
         </svg>
       </span>
       <span class="word"><b>PSA Advocacia</b><span>Empresarial</span></span>
@@ -354,6 +363,11 @@
         <div class="eyebrow">Direito Empresarial &amp; Compliance</div>
         <h1>Governança que resiste ao <em>escrutínio</em>, não só ao discurso</h1>
         <p class="lede">A PSA Advocacia Empresarial estrutura e assessora programas de integridade, códigos de conduta, comitês de ética e canais de denúncia — do desenho da política ao tratamento do relato mais difícil.</p>
+        <div class="hero-stats">
+          <span>12 anos blindando negócios</span><span class="dot">•</span>
+          <span>Compliance · Tributário · Penal Econômico</span><span class="dot">•</span>
+          <span>Atuação em todo o Brasil</span>
+        </div>
         <div class="actions">
           <a class="btn btn-primary" href="https://wa.me/5521983884842" target="_blank" rel="noopener">Agendar conversa</a>
           <a class="btn btn-ghost" href="#compliance">Ver como atuamos</a>
