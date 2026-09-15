@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 130 100%27%3E%3Ctext x=%2738%27 y=%2780%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2796%27 text-anchor=%27middle%27 fill=%27%238A6F3D%27%3EP%3C/text%3E%3Ctext x=%2792%27 y=%2780%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2796%27 text-anchor=%27middle%27 fill=%27%23AC8E53%27%3EA%3C/text%3E%3C/svg%3E">
+<title>PSA Compliance</title>
+<meta name="description" content="PSA Advocacia Empresarial: programas de integridade, código de conduta, comitês de ética, canais de denúncia e apuração de relatos para empresas e conselhos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF8F4;
+    --surface:#FFFFFF;
+    --surface-2:#F3EEE3;
+    --ink:#241F18;
+    --text:#4A4238;
+    --muted:#8C8172;
+    --gold:#AC8E53;
+    --gold-dark:#8A6F3D;
+    --gold-soft:rgba(172,142,83,0.10);
+    --border:#E8E1D3;
+    --shadow:rgba(36,31,24,0.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#18140F;
+      --surface:#221D16;
+      --surface-2:#2A231A;
+      --ink:#F3ECDD;
+      --text:#D6CCB9;
+      --muted:#9C9080;
+      --gold:#CDAD76;
+      --gold-dark:#E3C48E;
+      --gold-soft:rgba(205,173,118,0.14);
+      --border:#3B3122;
+      --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#18140F;
+    --surface:#221D16;
+    --surface-2:#2A231A;
+    --ink:#F3ECDD;
+    --text:#D6CCB9;
+    --muted:#9C9080;
+    --gold:#CDAD76;
+    --gold-dark:#E3C48E;
+    --gold-soft:rgba(205,173,118,0.14);
+    --border:#3B3122;
+    --shadow:rgba(0,0,0,0.35);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    padding-inline:0;
+    overflow-x:hidden;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; margin:0; padding:0; }
+  .wrap{ max-width:1120px; margin:0 auto; padding-inline:24px; }
+  section{ padding-block:76px; }
+  h1,h2,h3{ font-family:'Playfair Display',Georgia,serif; color:var(--ink); text-wrap:balance; margin:0; }
+  .eyebrow{
+    font-size:11.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold-dark); margin-bottom:14px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:""; width:22px; height:1.5px; background:var(--gold); display:inline-block; }
+  .lede{ font-size:17px; line-height:1.7; color:var(--muted); max-width:60ch; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Inter',sans-serif; font-weight:700; font-size:13.5px; letter-spacing:0.02em;
+    padding:14px 24px; border-radius:8px; cursor:pointer; border:1px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn:active{ transform:translateY(1px); }
+  .btn-primary{ background:var(--gold-dark); color:#FFF9EF; }
+  .btn-primary:hover{ box-shadow:0 8px 22px var(--shadow); }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .btn-primary{ color:#20180D; } }
+  :root[data-theme="dark"] .btn-primary{ color:#20180D; }
+  .btn-ghost{ background:transparent; border-color:var(--border); color:var(--ink); }
+  .btn-ghost:hover{ border-color:var(--gold); }
+
+  /* Header */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-row{ display:flex; align-items:center; justify-content:space-between; padding-block:16px; }
+  .brand{ display:flex; align-items:center; gap:11px; }
+  .brand .mono{
+    width:40px; height:34px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .brand .mono svg{ width:100%; height:100%; display:block; }
+  .brand .word{ display:flex; flex-direction:column; line-height:1.15; }
+  .brand .word b{ font-family:'Playfair Display',serif; font-weight:700; font-size:15px; letter-spacing:0.03em; color:var(--ink); }
+  .brand .word span{ font-size:9.5px; letter-spacing:0.16em; color:var(--muted); text-transform:uppercase; }
+  nav.links{ display:flex; align-items:center; gap:30px; }
+  nav.links a{ font-size:13.5px; font-weight:600; color:var(--text); }
+  nav.links a:hover{ color:var(--gold-dark); }
+  .nav-cta{ display:flex; align-items:center; gap:14px; }
+  .burger{ display:none; background:none; border:none; padding:6px; cursor:pointer; }
+  .burger span{ display:block; width:22px; height:1.6px; background:var(--ink); margin:5px 0; }
+  #mobile-nav{ display:none; }
+
+  /* Hero */
+  .hero{ padding-block:64px 56px; }
+  .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; }
+  .hero h1{ font-size:44px; line-height:1.14; margin-bottom:20px; }
+  .hero h1 em{ font-style:italic; color:var(--gold-dark); }
+  .hero .actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+  .hero-panel{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px;
+    padding:28px; box-shadow:0 18px 46px var(--shadow);
+  }
+  .hero-panel .flow{ display:flex; flex-direction:column; gap:0; }
+  .flow-step{ display:flex; align-items:center; gap:14px; padding-block:11px; position:relative; }
+  .flow-step:not(:last-child)::after{
+    content:""; position:absolute; left:15px; top:calc(100% - 2px); width:1px; height:14px; background:var(--border);
+  }
+  .flow-num{
+    width:31px; height:31px; border-radius:50%; border:1.5px solid var(--gold); color:var(--gold-dark);
+    display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; font-size:13px;
+    flex-shrink:0; background:var(--gold-soft);
+  }
+  .flow-step b{ font-size:14px; color:var(--ink); font-weight:700; }
+  .flow-step small{ display:block; font-size:12px; color:var(--muted); margin-top:1px; }
+  .hero-panel .cite{ margin-top:18px; padding-top:16px; border-top:1px solid var(--border); font-size:11.5px; color:var(--muted); font-style:italic; line-height:1.5; }
+
+  /* Norm strip */
+  .norms{ border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--surface-2); }
+  .norms .wrap{ padding-block:20px; display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
+  .norms .label{ font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); font-weight:700; }
+  .norms .item{ font-size:12.5px; color:var(--text); font-weight:600; white-space:nowrap; }
+  .norms .item span{ color:var(--muted); font-weight:400; }
+
+  /* Section headers */
+  .sec-head{ max-width:640px; margin-bottom:44px; }
+  .sec-head h2{ font-size:32px; line-height:1.22; margin-top:6px; }
+
+  /* Services grid */
+  .grid-services{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .svc{
+    background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:26px;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .svc:hover{ border-color:var(--gold); box-shadow:0 10px 28px var(--shadow); }
+  .svc .n{ font-family:'Playfair Display',serif; font-size:13px; color:var(--gold-dark); font-weight:700; margin-bottom:14px; }
+  .svc h3{ font-size:17.5px; margin-bottom:9px; line-height:1.3; }
+  .svc p{ font-size:13.8px; line-height:1.6; color:var(--muted); margin:0; }
+
+  /* Method strip */
+  .method{ background:var(--surface-2); }
+  .method-row{ display:flex; gap:0; overflow-x:auto; padding-bottom:6px; scrollbar-width:thin; }
+  .m-step{ flex:1 0 150px; padding:22px 18px; position:relative; border-right:1px dashed var(--border); }
+  .m-step:last-child{ border-right:none; }
+  .m-step .k{ font-family:'Playfair Display',serif; font-size:22px; color:var(--gold); font-weight:700; display:block; margin-bottom:10px; }
+  .m-step b{ display:block; font-size:14px; color:var(--ink); margin-bottom:5px; }
+  .m-step small{ font-size:12px; color:var(--muted); line-height:1.45; }
+  .method-epigraph{ margin-top:30px; font-family:'Playfair Display',serif; font-style:italic; font-size:15.5px; color:var(--text); border-left:3px solid var(--gold); padding-left:18px; max-width:640px; }
+  .method-epigraph cite{ display:block; font-family:'Inter',sans-serif; font-style:normal; font-size:11.5px; color:var(--muted); margin-top:8px; letter-spacing:0.03em; }
+
+  /* Differentiators */
+  .diff-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+  .diff-grid .item b{ display:block; font-family:'Playfair Display',serif; font-size:19px; color:var(--ink); margin-bottom:9px; }
+  .diff-grid .item p{ font-size:13.8px; line-height:1.65; color:var(--muted); margin:0; }
+  .diff-grid .item .idx{ font-size:11px; letter-spacing:0.12em; color:var(--gold-dark); font-weight:700; margin-bottom:12px; display:block; }
+
+  /* About */
+  .about{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:48px; align-items:center; }
+  .avatar{
+    width:100%; aspect-ratio:1/1; max-width:220px; border-radius:16px;
+    background:linear-gradient(155deg, var(--gold-soft), transparent), var(--surface-2);
+    border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+    padding:36px;
+  }
+  .avatar svg{ width:100%; height:100%; display:block; }
+  .about-quote{ font-family:'Playfair Display',serif; font-size:19px; line-height:1.5; color:var(--ink); font-style:italic; margin-bottom:16px; }
+  .about-name b{ font-size:14.5px; color:var(--ink); }
+  .about-name span{ display:block; font-size:12.5px; color:var(--muted); margin-top:2px; }
+  .about-links{ display:flex; gap:16px; margin-top:16px; }
+  .about-links a{ font-size:12.5px; color:var(--gold-dark); font-weight:600; }
+
+  /* Insights */
+  .insights-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:36px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  }
+  .insights-card h3{ font-size:22px; margin-bottom:8px; }
+  .insights-card p{ font-size:14px; color:var(--muted); margin:0; max-width:46ch; }
+  .topics{ display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+  .topic-tag{
+    font-size:10.5px; font-weight:700; letter-spacing:0.03em; color:var(--gold-dark);
+    background:var(--gold-soft); border:1px solid rgba(172,142,83,0.3); border-radius:999px; padding:4px 11px;
+  }
+
+  /* Contact */
+  .contact{ background:linear-gradient(155deg, var(--gold-soft), transparent), var(--surface-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .contact-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:start; }
+  .contact h2{ font-size:30px; margin-bottom:14px; }
+  .ch-list{ display:flex; flex-direction:column; gap:14px; margin-top:26px; }
+  .ch-item{ display:flex; align-items:center; gap:13px; }
+  .ch-ic{
+    width:38px; height:38px; border-radius:9px; background:var(--surface); border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--gold-dark);
+  }
+  .ch-item b{ display:block; font-size:13.5px; color:var(--ink); }
+  .ch-item span{ font-size:12.5px; color:var(--muted); }
+  .disclaimer-box{
+    background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px;
+    font-size:12.5px; line-height:1.65; color:var(--muted);
+  }
+  .disclaimer-box b{ color:var(--ink); }
+
+  /* Footer */
+  footer.site{ padding-block:40px; }
+  .foot-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .foot-brand{ font-size:12px; color:var(--muted); }
+  .foot-links{ display:flex; gap:20px; flex-wrap:wrap; }
+  .foot-links a{ font-size:12px; color:var(--muted); display:inline-flex; align-items:center; gap:6px; }
+  .foot-links a:hover{ color:var(--gold-dark); }
+
+  .wa-float{
+    position:fixed; bottom:22px; right:22px; width:56px; height:56px; border-radius:50%;
+    background:#25D366; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px var(--shadow); z-index:60;
+  }
+  .wa-float:hover{ opacity:.92; }
+
+  @media (max-width: 900px){
+    .hero-grid, .about, .contact-grid{ grid-template-columns:1fr; }
+    .grid-services{ grid-template-columns:repeat(2,1fr); }
+    .diff-grid{ grid-template-columns:1fr; gap:26px; }
+    nav.links{ display:none; }
+    .burger{ display:block; }
+  }
+  @media (max-width: 900px){
+    #mobile-nav.open{
+      display:flex; flex-direction:column; gap:2px; padding:10px 24px 18px; border-top:1px solid var(--border);
+    }
+    #mobile-nav a{ padding:11px 0; font-size:14.5px; font-weight:600; color:var(--text); border-bottom:1px solid var(--border); }
+  }
+  @media (max-width: 640px){
+    section{ padding-block:52px; }
+    .hero{ padding-block:36px 40px; }
+    .hero h1{ font-size:31px; }
+    .sec-head h2{ font-size:25px; }
+    .grid-services{ grid-template-columns:1fr; }
+    .method-row{ overflow-x:auto; }
+    .norms .wrap{ gap:16px; }
+    .contact h2{ font-size:24px; }
+    .insights-card{ padding:26px 22px; }
+  }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav-row">
+    <a href="#top" class="brand">
+      <span class="mono" aria-hidden="true">
+        <svg viewBox="0 0 130 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="pa-grad-nav" x1="0" y1="0" x2="0.7" y2="1">
+              <stop offset="0%" stop-color="#E4CE9B"/>
+              <stop offset="100%" stop-color="#8A6F3D"/>
+            </linearGradient>
+          </defs>
+          <text x="38" y="80" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="96" text-anchor="middle" fill="url(#pa-grad-nav)">P</text>
+          <text x="92" y="80" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="96" text-anchor="middle" fill="url(#pa-grad-nav)" opacity="0.88">A</text>
+        </svg>
+      </span>
+      <span class="word"><b>PSA Advocacia</b><span>Empresarial</span></span>
+    </a>
+    <nav class="links">
+      <a href="#compliance">Compliance</a>
+      <a href="#metodo">Método</a>
+      <a href="#areas">Áreas</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://wa.me/5521983884842" target="_blank" rel="noopener">Falar com a equipe</a>
+      <button class="burger" id="burgerBtn" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav">
+    <a href="#compliance">Compliance</a>
+    <a href="#metodo">Método</a>
+    <a href="#areas">Áreas</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div data-reveal>
+        <div class="eyebrow">Direito Empresarial &amp; Compliance</div>
+        <h1>Governança que resiste ao <em>escrutínio</em>, não só ao discurso</h1>
+        <p class="lede">A PSA Advocacia Empresarial estrutura e assessora programas de integridade, códigos de conduta, comitês de ética e canais de denúncia — do desenho da política ao tratamento do relato mais difícil.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://wa.me/5521983884842" target="_blank" rel="noopener">Agendar conversa</a>
+          <a class="btn btn-ghost" href="#compliance">Ver como atuamos</a>
+        </div>
+      </div>
+      <div class="hero-panel" data-reveal>
+        <div class="eyebrow" style="margin-bottom:16px;">Como uma apuração se conduz</div>
+        <div class="flow">
+          <div class="flow-step"><span class="flow-num">1</span><div><b>Relato</b><small>O que foi comunicado, por quem e por qual canal</small></div></div>
+          <div class="flow-step"><span class="flow-num">2</span><div><b>Hipótese</b><small>Qual norma, política ou dever pode ter sido violado</small></div></div>
+          <div class="flow-step"><span class="flow-num">3</span><div><b>Questão</b><small>O que precisa ser esclarecido para confirmar ou afastar o fato</small></div></div>
+          <div class="flow-step"><span class="flow-num">4</span><div><b>Evidência</b><small>Documentos, registros e depoimentos que sustentam a análise</small></div></div>
+          <div class="flow-step"><span class="flow-num">5</span><div><b>Diligência</b><small>Verificação ativa, sem pressa e sem atalho</small></div></div>
+          <div class="flow-step"><span class="flow-num">6</span><div><b>Conclusão</b><small>Fundamentação registrada e providência proporcional</small></div></div>
+        </div>
+        <div class="cite">Inspirado no método cartesiano de dividir cada dificuldade em tantas partes quantas seja possível — a lógica que orienta toda apuração conduzida com rigor.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="norms">
+    <div class="wrap">
+      <span class="label">Base normativa de referência</span>
+      <span class="item">Lei nº 12.846/2013 <span>· Lei Anticorrupção</span></span>
+      <span class="item">Decreto nº 11.129/2022 <span>· Programas de integridade</span></span>
+      <span class="item">Lei nº 13.709/2018 <span>· LGPD</span></span>
+      <span class="item">CLT &amp; jurisprudência TST <span>· Assédio e relações de trabalho</span></span>
+    </div>
+  </div>
+
+  <section id="compliance">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <div class="eyebrow">Compliance em foco</div>
+        <h2>Compliance é o que a empresa faz quando ninguém está checando</h2>
+        <p class="lede" style="margin-top:14px;">Cumprir a lei é o piso. Um programa de integridade maduro define responsabilidades, mede riscos, treina pessoas e garante que um relato — inclusive contra a própria liderança — receba tratamento imparcial e documentado. É nesse ponto que compliance deixa de ser política de gaveta e passa a proteger de fato a organização, os administradores e quem denuncia de boa-fé.</p>
+      </div>
+
+      <div class="grid-services">
+        <div class="svc" data-reveal>
+          <div class="n">01</div>
+          <h3>Programas de integridade</h3>
+          <p>Desenho e implementação de programas nos parâmetros do Decreto nº 11.129/2022: mapeamento de riscos, controles internos e plano de ação sob medida para o porte e o setor da empresa.</p>
+        </div>
+        <div class="svc" data-reveal>
+          <div class="n">02</div>
+          <h3>Código de conduta e políticas</h3>
+          <p>Elaboração e revisão de código de conduta, políticas de conflito de interesses, presentes e brindes, relacionamento com terceiros e segurança da informação, com linguagem aplicável ao dia a dia.</p>
+        </div>
+        <div class="svc" data-reveal>
+          <div class="n">03</div>
+          <h3>Comitês de ética</h3>
+          <p>Estruturação de regimentos, capacitação de membros e assessoria continuada a comitês de conduta ética e comitês do conselho de administração na análise e deliberação de casos.</p>
+        </div>
+        <div class="svc" data-reveal>
+          <div class="n">04</div>
+          <h3>Canais de denúncia e apuração</h3>
+          <p>Implantação de canal de ética, definição de fluxo de triagem e condução ou acompanhamento de investigações internas, da hipótese à conclusão fundamentada.</p>
+        </div>
+        <div class="svc" data-reveal>
+          <div class="n">05</div>
+          <h3>Assédio e discriminação</h3>
+          <p>Diagnóstico e resposta a relatos de assédio moral, sexual e eleitoral no ambiente de trabalho, com metodologia de análise de contexto, recorrência e efeitos.</p>
+        </div>
+        <div class="svc" data-reveal>
+          <div class="n">06</div>
+          <h3>Devida diligência de terceiros</h3>
+          <p>Avaliação de fornecedores, parceiros e representantes antes e durante a relação contratual, com foco em integridade, direitos humanos e reputação.</p>
+        </div>
+        <div class="svc" data-reveal>
+          <div class="n">07</div>
+          <h3>Proteção de dados</h3>
+          <p>Adequação à LGPD em processos de investigação e gestão de canais de ética, conciliando apuração eficaz com finalidade legítima e minimização de dados.</p>
+        </div>
+        <div class="svc" data-reveal>
+          <div class="n">08</div>
+          <h3>Treinamento e cultura</h3>
+          <p>Capacitação de conselheiros, diretores, comitês e equipes em conduta ética, tomada de decisão e prevenção de irregularidades, com estudos de caso reais do setor.</p>
+        </div>
+        <div class="svc" data-reveal>
+          <div class="n">09</div>
+          <h3>Resposta a incidentes</h3>
+          <p>Apoio em situações de crise envolvendo corrupção, fraude ou vazamento, incluindo interlocução com autoridades quando houver indício de ilícito penal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodo" class="method">
+    <div class="wrap">
+      <div class="sec-head" data-reveal style="margin-bottom:30px;">
+        <div class="eyebrow">Método</div>
+        <h2>Um relato só vira decisão depois de passar por seis filtros</h2>
+      </div>
+      <div class="method-row" data-reveal>
+        <div class="m-step"><span class="k">01</span><b>Relato</b><small>Registro do que foi comunicado e por qual canal chegou.</small></div>
+        <div class="m-step"><span class="k">02</span><b>Hipótese</b><small>Identificação da norma ou dever supostamente descumprido.</small></div>
+        <div class="m-step"><span class="k">03</span><b>Questão</b><small>Definição do que precisa ser esclarecido no caso concreto.</small></div>
+        <div class="m-step"><span class="k">04</span><b>Evidência</b><small>Reunião de documentos, sistemas e depoimentos pertinentes.</small></div>
+        <div class="m-step"><span class="k">05</span><b>Diligência</b><small>Verificação ativa dos fatos, com contraditório quando cabível.</small></div>
+        <div class="m-step"><span class="k">06</span><b>Conclusão</b><small>Relatório fundamentado e providência proporcional à gravidade.</small></div>
+      </div>
+      <div class="method-epigraph" data-reveal>
+        “Dividir cada uma das dificuldades que eu examinasse em tantas partes quantas fosse possível, para melhor resolvê-las.”
+        <cite>Discurso do Método — René Descartes</cite>
+      </div>
+    </div>
+  </section>
+
+  <section id="areas">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <div class="eyebrow">Por que a PSA</div>
+        <h2>Três coisas que um comitê de ética não pode terceirizar</h2>
+      </div>
+      <div class="diff-grid">
+        <div class="item" data-reveal>
+          <span class="idx">Independência</span>
+          <b>Consultoria, não substituição</b>
+          <p>Apoiamos a apuração e a fundamentação técnica, mas a decisão continua sendo do colegiado — porque a função de membro de comitê é indelegável, e é assim que a proteção contra retaliação e as garantias de independência se sustentam.</p>
+        </div>
+        <div class="item" data-reveal>
+          <span class="idx">Confidencialidade</span>
+          <b>Sigilo tratado como processo</b>
+          <p>Definimos quem acessa cada informação, em que etapa e para qual finalidade — do denunciante ao investigado — porque a credibilidade de um canal de ética depende de proteção efetiva, não apenas prometida.</p>
+        </div>
+        <div class="item" data-reveal>
+          <span class="idx">Rastreabilidade</span>
+          <b>Toda conclusão, documentada</b>
+          <p>Cada apuração resulta em registro fundamentado: o que foi analisado, por que a conclusão foi essa e qual providência é proporcional — para resistir a uma auditoria, uma fiscalização ou uma disputa judicial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="wrap about">
+      <div data-reveal>
+        <div class="avatar">
+          <svg viewBox="0 0 130 100" xmlns="http://www.w3.org/2000/svg" aria-label="Monograma PSA">
+            <defs>
+              <linearGradient id="pa-grad-about" x1="0" y1="0" x2="0.7" y2="1">
+                <stop offset="0%" stop-color="#E4CE9B"/>
+                <stop offset="100%" stop-color="#8A6F3D"/>
+              </linearGradient>
+            </defs>
+            <text x="38" y="80" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="96" text-anchor="middle" fill="url(#pa-grad-about)">P</text>
+            <text x="92" y="80" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="96" text-anchor="middle" fill="url(#pa-grad-about)" opacity="0.88">A</text>
+          </svg>
+        </div>
+      </div>
+      <div data-reveal>
+        <div class="eyebrow">Quem conduz</div>
+        <p class="about-quote">"Um programa de compliance só é testado de verdade no relato mais difícil — aquele que envolve alguém com poder de retaliar."</p>
+        <div class="about-name">
+          <b>Priscila Alves</b>
+          <span>Sócia responsável pela área de Compliance &amp; Governança — PSA Advocacia Empresarial</span>
+        </div>
+        <div class="about-links">
+          <a href="https://www.linkedin.com/in/priscilaalvespsa" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="mailto:priscila.alves@psalaw.adv.br">priscila.alves@psalaw.adv.br</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="insights-card" data-reveal>
+        <div>
+          <div class="eyebrow" style="margin-bottom:10px;">No blog</div>
+          <h3>Compliance, tributário e empresarial, direto ao ponto</h3>
+          <p>Análises técnicas sobre normas, prazos e decisões que afetam empresas, sócios e gestores jurídicos — publicadas no blog da PSA.</p>
+          <div class="topics">
+            <span class="topic-tag">Compliance</span>
+            <span class="topic-tag">Tributário</span>
+            <span class="topic-tag">Empresarial</span>
+            <span class="topic-tag">Imobiliário</span>
+          </div>
+        </div>
+        <a class="btn btn-primary" href="https://blog.psalaw.adv.br" target="_blank" rel="noopener">Ler o blog ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contact">
+    <div class="wrap contact-grid">
+      <div data-reveal>
+        <div class="eyebrow">Contato</div>
+        <h2>Antes do relato virar crise, ele passa por um processo</h2>
+        <p class="lede">Fale com a equipe de Compliance &amp; Governança da PSA para estruturar um programa novo, revisar o que já existe ou apoiar um caso em curso.</p>
+        <div class="ch-list">
+          <div class="ch-item">
+            <span class="ch-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.07-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke="currentColor" stroke-width="1.6"/></svg></span>
+            <div><b>WhatsApp</b><span>(21) 98388-4842</span></div>
+          </div>
+          <div class="ch-item">
+            <span class="ch-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 6l8.5 7 8.5-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><b>E-mail</b><span>psa@psalaw.adv.br</span></div>
+          </div>
+          <div class="ch-item">
+            <span class="ch-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg></span>
+            <div><b>Instagram</b><span>@psaadvocaciaempresarial</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="disclaimer-box" data-reveal>
+        <p style="margin:0 0 10px;"><b>Aviso de uso.</b> Este site tem finalidade informativa e institucional. O conteúdo aqui apresentado não constitui aconselhamento jurídico para um caso concreto, não substitui o código de conduta, os regimentos e as políticas internas de cada organização, nem a legislação aplicável.</p>
+        <p style="margin:0;">Para uma avaliação do seu caso, fale diretamente com a equipe pelos canais ao lado.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-row">
+    <div class="foot-brand">© <span id="year">2026</span> PSA Advocacia Empresarial · Direito Empresarial &amp; Compliance</div>
+    <div class="foot-links">
+      <a href="https://instagram.com/psaadvocaciaempresarial" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/5521983884842" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:psa@psalaw.adv.br">E-mail</a>
+      <a href="https://blog.psalaw.adv.br" target="_blank" rel="noopener">Blog</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5521983884842" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 32 32" fill="white"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.912 6.482L4 29l7.72-1.877A11.94 11.94 0 0 0 16.001 27C22.628 27 28 21.627 28 15S22.628 3 16.001 3zm0 21.818a9.77 9.77 0 0 1-4.98-1.363l-.357-.213-4.583 1.114 1.128-4.464-.234-.367A9.78 9.78 0 0 1 5.182 15c0-5.964 4.854-10.818 10.819-10.818S26.818 9.036 26.818 15 21.965 24.818 16.001 24.818zm5.605-8.14c-.307-.154-1.816-.897-2.098-.999-.281-.103-.486-.154-.69.153-.205.308-.792.999-.97 1.204-.179.205-.358.23-.665.077-.307-.154-1.297-.478-2.47-1.523-.913-.814-1.53-1.82-1.708-2.128-.179-.307-.019-.473.135-.626.138-.138.307-.358.46-.537.154-.18.205-.307.307-.512.103-.205.051-.384-.026-.537-.077-.154-.69-1.663-.945-2.278-.249-.598-.502-.517-.69-.527l-.588-.01c-.205 0-.537.077-.818.384s-1.075 1.05-1.075 2.56 1.1 2.97 1.253 3.175c.154.205 2.166 3.307 5.248 4.637.733.316 1.305.505 1.751.646.735.234 1.404.201 1.933.122.59-.088 1.816-.742 2.072-1.459.256-.716.256-1.331.179-1.459-.077-.128-.282-.205-.589-.358z"/></svg>
+</a>
+
+<script>
+  (function(){
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    var burger = document.getElementById('burgerBtn');
+    var mnav = document.getElementById('mobile-nav');
+    burger.addEventListener('click', function(){
+      var open = mnav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    mnav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ mnav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
+    });
+  })();
+</script>
+</body>
+</html>
