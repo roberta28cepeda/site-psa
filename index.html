@@ -85,7 +85,7 @@
   a{ color:inherit; text-decoration:none; }
   ul{ list-style:none; margin:0; padding:0; }
   .wrap{ max-width:1120px; margin:0 auto; padding-inline:24px; position:relative; }
-  section{ padding-block:76px; }
+  section{ padding-block:96px; }
   h1,h2,h3{ font-family:'Playfair Display',Georgia,serif; color:var(--gold-dark); text-wrap:balance; margin:0; }
   .eyebrow{
     font-size:11.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
@@ -155,42 +155,35 @@
   #mobile-nav{ display:none; }
 
   /* Hero */
-  .hero{ padding-block:64px 56px; position:relative; overflow:hidden; }
-  .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; }
-  .hero h1{ font-size:44px; line-height:1.14; margin-bottom:20px; }
+  .hero{ padding-block:96px 84px; position:relative; overflow:hidden; }
+  .hero-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:64px; align-items:center; }
+  .hero h1{ font-size:56px; line-height:1.1; margin-bottom:24px; letter-spacing:-0.01em; }
   .hero h1 em{ font-style:italic; color:var(--wine); }
-  .hero-stats{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:18px; font-size:12.5px; font-weight:600; color:var(--muted); }
+  .hero-stats{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:22px; font-size:12.5px; font-weight:600; color:var(--muted); }
   .hero-stats .dot{ color:var(--gold); font-weight:700; }
-  .hero .actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:26px; }
+  .hero .actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; }
   .seed-of-life{ position:absolute; pointer-events:none; opacity:0.5; transition:transform .3s ease-out; }
-  .hero-panel{
-    background:var(--surface); border:1px solid var(--border); border-radius:16px;
-    padding:28px; box-shadow:0 18px 46px var(--shadow); position:relative; overflow:hidden;
-  }
-  .hero-panel .flow{ display:flex; flex-direction:column; gap:0; }
-  .flow-step{ display:flex; align-items:center; gap:14px; padding-block:11px; position:relative; }
-  .flow-step:not(:last-child)::after{
-    content:""; position:absolute; left:15px; top:calc(100% - 2px); width:1px; height:14px; background:var(--border);
-  }
-  .flow-num{
-    width:31px; height:31px; border-radius:50%; border:1.5px solid var(--gold); color:var(--gold-dark);
-    display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; font-size:13px;
-    flex-shrink:0; background:var(--gold-soft);
-  }
-  .flow-num.is-lead{ border-color:var(--wine); color:var(--wine); background:var(--wine-soft); }
-  .flow-step b{ font-size:14px; color:var(--ink); font-weight:700; }
-  .flow-step small{ display:block; font-size:12px; color:var(--muted); margin-top:1px; }
-  .hero-panel .cite{ margin-top:18px; padding-top:16px; border-top:1px solid var(--border); font-size:11.5px; color:var(--muted); font-style:italic; line-height:1.5; }
-  @media (prefers-reduced-motion: no-preference){
-    @keyframes stepGlow{ 0%,80%,100%{ box-shadow:none; } 6%,14%{ box-shadow:0 0 0 5px var(--gold-soft); } }
-    @keyframes stepGlowWine{ 0%,80%,100%{ box-shadow:none; } 6%,14%{ box-shadow:0 0 0 5px var(--wine-soft); } }
-    .flow-step:nth-child(1) .flow-num{ animation:stepGlowWine 7.5s ease-in-out infinite; }
-    .flow-step:nth-child(2) .flow-num{ animation:stepGlowWine 7.5s ease-in-out infinite 2.5s; }
-    .flow-step:nth-child(3) .flow-num{ animation:stepGlow 7.5s ease-in-out infinite 5s; }
-  }
 
-  /* Subtle pointer-tilt on premium surfaces (desktop, fine pointer, motion allowed) */
-  .hero-panel{ transition:border-color .15s ease, box-shadow .15s ease, transform .12s ease; transform-style:preserve-3d; will-change:transform; }
+  /* 3D justice scale — presents the three practice pillars */
+  .scale-3d-stage{ position:relative; width:100%; max-width:300px; margin-inline:auto; }
+  .scale-3d-svg{ width:100%; height:auto; display:block; overflow:visible; perspective:900px; }
+  .scale-3d-svg .s-base,.scale-3d-svg .s-pole,.scale-3d-svg .s-bar{ stroke:var(--gold-dark); stroke-width:3; stroke-linecap:round; }
+  .scale-3d-svg .s-chain{ stroke:var(--gold); stroke-width:2; stroke-linecap:round; }
+  .scale-3d-svg .s-pan{ stroke:var(--wine); stroke-width:3; fill:none; stroke-linecap:round; }
+  .scale-3d-svg .s-pivot{ fill:var(--gold-dark); }
+  .scale-labels{ position:relative; margin-top:26px; min-height:24px; text-align:center; }
+  .scale-label{ font-family:'Playfair Display',serif; font-style:italic; font-size:15.5px; color:var(--gold-dark); }
+  @media (prefers-reduced-motion: no-preference){
+    .scale-3d-svg{ transform-style:preserve-3d; animation:scaleTurn 12s ease-in-out infinite; }
+    @keyframes scaleTurn{ 0%,100%{ transform:rotateY(-12deg); } 50%{ transform:rotateY(12deg); } }
+    .scale-3d-svg .s-beam{ transform-origin:110px 30px; animation:beamTilt 6s ease-in-out infinite; }
+    @keyframes beamTilt{ 0%,100%{ transform:rotate(-7deg); } 50%{ transform:rotate(7deg); } }
+    .scale-label{ position:absolute; inset:0; opacity:0; animation:labelCycle 9.9s ease-in-out infinite; }
+    @keyframes labelCycle{ 0%,3%{ opacity:0; } 8%,26%{ opacity:1; } 31%,100%{ opacity:0; } }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .scale-labels{ display:flex; flex-direction:column; gap:6px; }
+  }
 
   /* Norm strip */
   .norms{ border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--surface-2); }
@@ -200,66 +193,57 @@
   .norms .item span{ color:var(--muted); font-weight:400; }
 
   /* Section headers */
-  .sec-head{ max-width:640px; margin-bottom:44px; }
-  .sec-head h2{ font-size:32px; line-height:1.22; margin-top:6px; }
+  .sec-head{ max-width:640px; margin-bottom:56px; }
+  .sec-head h2{ font-size:36px; line-height:1.2; margin-top:8px; }
 
-  /* Services grid (interactive accordion cards) */
-  .grid-services{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  /* Services — editorial minimal list, no boxed cards */
+  .grid-services{ max-width:760px; }
   .svc-group-label{
-    grid-column:1 / -1; font-family:'Playfair Display',serif; font-size:13px; font-weight:700;
+    font-family:'Playfair Display',serif; font-size:13px; font-weight:700;
     letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dark);
-    padding-bottom:10px; border-bottom:1px solid var(--border); margin-top:12px;
-    display:flex; align-items:center; gap:9px;
+    margin-top:52px; display:flex; align-items:center; gap:9px;
   }
   .svc-group-label:first-child{ margin-top:0; }
   .svc-group-label::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--gold-dark); flex-shrink:0; }
-  .svc-group-label.is-lead{ color:var(--wine); border-bottom-color:var(--wine-soft); }
+  .svc-group-label.is-lead{ color:var(--wine); }
   .svc-group-label.is-lead::before{ background:var(--wine); }
-  .svc{
-    background:var(--surface); border:1px solid var(--border); border-radius:14px;
-    transition:border-color .15s ease, box-shadow .15s ease, transform .12s ease;
-    transform-style:preserve-3d; will-change:transform;
-  }
-  .svc:hover{ border-color:var(--gold); box-shadow:0 10px 28px var(--shadow); }
-  .svc.expanded{ border-color:var(--wine); }
+  .svc{ border-bottom:1px solid var(--border); }
+  .svc:last-child{ border-bottom:none; }
   .svc.expanded .svc-chev{ color:var(--wine); }
-  .svc-head{ all:unset; box-sizing:border-box; display:block; width:100%; padding:26px; cursor:pointer; border-radius:14px; }
+  .svc-head{ all:unset; box-sizing:border-box; display:block; width:100%; padding:26px 0; cursor:pointer; }
   .svc-head:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
-  .svc-head-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
-  .svc .n{ font-family:'Playfair Display',serif; font-size:13px; color:var(--gold-dark); font-weight:700; margin-bottom:14px; }
-  .svc h3{ font-size:17.5px; margin-bottom:9px; line-height:1.3; }
-  .svc p{ font-size:13.8px; line-height:1.6; color:var(--muted); margin:0; }
-  .svc-chev{ flex-shrink:0; width:20px; height:20px; color:var(--gold); transition:transform .3s ease; margin-top:2px; }
+  .svc-head-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:20px; }
+  .svc .n{ font-family:'Playfair Display',serif; font-size:12.5px; color:var(--muted); font-weight:700; margin-bottom:10px; }
+  .svc h3{ font-size:20px; margin-bottom:10px; line-height:1.3; }
+  .svc p{ font-size:14.5px; line-height:1.65; color:var(--muted); margin:0; max-width:56ch; }
+  .svc-chev{ flex-shrink:0; width:18px; height:18px; color:var(--gold); transition:transform .3s ease, color .2s ease; margin-top:6px; }
   .svc-head[aria-expanded="true"] .svc-chev{ transform:rotate(180deg); }
   .svc-more{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s ease; }
   .svc.expanded .svc-more{ grid-template-rows:1fr; }
   .svc-more-inner{ overflow:hidden; }
-  .svc-more-pad{ padding:0 26px 26px; border-top:1px solid var(--border); margin-top:2px; padding-top:16px; }
-  .svc-quote{ font-family:'Playfair Display',serif; font-style:italic; font-size:14.5px; line-height:1.55; color:var(--gold-dark); margin:0; }
-  .svc-note{ font-size:13px; line-height:1.6; color:var(--muted); margin:0; }
+  .svc-more-pad{ padding:0 0 26px; border-left:2px solid var(--wine-soft); margin-left:2px; padding-left:20px; }
+  .svc-quote{ font-family:'Playfair Display',serif; font-style:italic; font-size:15px; line-height:1.6; color:var(--gold-dark); margin:0; }
+  .svc-note{ font-size:13.5px; line-height:1.65; color:var(--muted); margin:0; }
 
   /* Method strip */
   .method{ background:var(--surface-2); }
   .method-row{ display:flex; gap:0; overflow-x:auto; padding-bottom:6px; scrollbar-width:thin; }
   .m-step{
     all:unset; box-sizing:border-box; display:block; text-align:left; cursor:pointer;
-    flex:1 0 150px; padding:22px 18px; position:relative; border-right:1px dashed var(--border);
-    border-radius:10px 10px 0 0; transition:background .2s ease;
+    flex:1 0 150px; padding:6px 18px 18px 0; border-bottom:2px solid transparent; transition:border-color .2s ease;
   }
-  .m-step:last-child{ border-right:none; }
-  .m-step:hover{ background:var(--gold-soft); }
-  .m-step:focus-visible{ outline:2px solid var(--gold); outline-offset:-2px; }
-  .m-step.active{ background:var(--wine-soft); }
+  .m-step:hover{ border-color:var(--border); }
+  .m-step:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+  .m-step.active{ border-color:var(--wine); }
   .m-step.active .k{ color:var(--wine); }
   .m-step .k{ font-family:'Playfair Display',serif; font-size:22px; color:var(--gold); font-weight:700; display:block; margin-bottom:10px; transition:color .2s ease; }
   .m-step b{ display:block; font-size:14px; color:var(--ink); margin-bottom:5px; }
   .m-step small{ font-size:12px; color:var(--muted); line-height:1.45; }
   .method-detail{
-    display:flex; gap:16px; align-items:flex-start; margin-top:4px; background:var(--surface);
-    border:1px solid var(--border); border-radius:0 0 14px 14px; padding:22px 26px;
+    display:flex; gap:16px; align-items:flex-start; margin-top:30px; padding-top:26px; border-top:1px solid var(--border);
   }
   .method-detail-k{ font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--wine); flex-shrink:0; }
-  .method-detail p{ margin:0; font-size:14px; line-height:1.7; color:var(--text); }
+  .method-detail p{ margin:0; font-size:15px; line-height:1.75; color:var(--text); max-width:62ch; }
   .method-epigraph{ margin-top:30px; font-family:'Playfair Display',serif; font-style:italic; font-size:15.5px; color:var(--text); border-left:3px solid var(--gold); padding-left:18px; max-width:640px; }
   .method-epigraph cite{ display:block; font-family:'Poppins',sans-serif; font-style:normal; font-size:11.5px; color:var(--muted); margin-top:8px; letter-spacing:0.03em; }
 
@@ -295,10 +279,10 @@
 
   /* Insights */
   .insights-card{
-    background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:36px;
+    border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding-block:44px;
     display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
   }
-  .insights-card h3{ font-size:22px; margin-bottom:8px; }
+  .insights-card h3{ font-size:24px; margin-bottom:8px; }
   .insights-card p{ font-size:14px; color:var(--muted); margin:0; max-width:46ch; }
   .topics{ display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
   .topic-tag{
@@ -319,7 +303,7 @@
   .ch-item b{ display:block; font-size:13.5px; color:var(--ink); }
   .ch-item span{ font-size:12.5px; color:var(--muted); }
   .disclaimer-box{
-    background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px;
+    border-left:2px solid var(--border); padding-left:20px;
     font-size:12.5px; line-height:1.65; color:var(--muted);
   }
   .disclaimer-box b{ color:var(--ink); }
@@ -341,7 +325,6 @@
 
   @media (max-width: 900px){
     .hero-grid, .about, .contact-grid{ grid-template-columns:1fr; }
-    .grid-services{ grid-template-columns:repeat(2,1fr); }
     .diff-grid{ grid-template-columns:1fr; gap:26px; }
     nav.links{ display:none; }
     .burger{ display:block; }
@@ -355,14 +338,13 @@
   }
   @media (max-width: 640px){
     section{ padding-block:52px; }
-    .hero{ padding-block:36px 40px; }
-    .hero h1{ font-size:31px; }
+    .hero{ padding-block:48px 40px; }
+    .hero h1{ font-size:34px; }
     .sec-head h2{ font-size:25px; }
-    .grid-services{ grid-template-columns:1fr; }
     .method-row{ overflow-x:auto; }
     .norms .wrap{ gap:16px; }
     .contact h2{ font-size:24px; }
-    .insights-card{ padding:26px 22px; }
+    .insights-card{ padding-block:32px; }
     .badge-award{ left:8px; bottom:-14px; }
   }
 </style>
@@ -437,14 +419,24 @@
           <a class="btn btn-ghost" href="#atuacao">Ver como atuamos</a>
         </div>
       </div>
-      <div class="hero-panel" data-reveal>
-        <div class="eyebrow" style="margin-bottom:16px;">Três frentes, uma só estratégia</div>
-        <div class="flow">
-          <div class="flow-step"><span class="flow-num is-lead">1</span><div><b>Compliance</b><small>Programas de integridade, código de conduta e treinamento que resistem a auditoria e fiscalização</small></div></div>
-          <div class="flow-step"><span class="flow-num is-lead">2</span><div><b>Investigações Corporativas</b><small>Canal de ética, apuração de denúncias, due diligence e background checks</small></div></div>
-          <div class="flow-step"><span class="flow-num">3</span><div><b>Tributário &amp; Empresarial</b><small>Planejamento fiscal, contratos e governança que sustentam o negócio</small></div></div>
+      <div class="scale-3d-stage" data-reveal>
+        <svg class="scale-3d-svg" viewBox="0 0 220 200" aria-hidden="true">
+          <line class="s-base" x1="72" y1="192" x2="148" y2="192"/>
+          <line class="s-pole" x1="110" y1="192" x2="110" y2="30"/>
+          <circle class="s-pivot" cx="110" cy="30" r="3.5"/>
+          <g class="s-beam">
+            <line class="s-bar" x1="38" y1="30" x2="182" y2="30"/>
+            <line class="s-chain" x1="38" y1="30" x2="38" y2="60"/>
+            <line class="s-chain" x1="182" y1="30" x2="182" y2="60"/>
+            <path class="s-pan" d="M18 60 Q38 80 58 60"/>
+            <path class="s-pan" d="M162 60 Q182 80 202 60"/>
+          </g>
+        </svg>
+        <div class="scale-labels">
+          <span class="scale-label" style="animation-delay:0s">Compliance</span>
+          <span class="scale-label" style="animation-delay:3.3s">Investigações Corporativas</span>
+          <span class="scale-label" style="animation-delay:6.6s">Tributário &amp; Empresarial</span>
         </div>
-        <div class="cite">Três frentes que, na prática, raramente aparecem separadas dentro de uma empresa — por isso trabalhamos as três de forma integrada.</div>
       </div>
     </div>
   </section>
@@ -898,22 +890,6 @@
         if (methodDetailText) methodDetailText.textContent = methodDetails[i];
       });
     });
-
-    // Subtle pointer-tilt on premium surfaces (desktop, fine pointer, motion allowed)
-    if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches){
-      var tiltEls = document.querySelectorAll('.svc, .hero-panel');
-      tiltEls.forEach(function(el){
-        el.addEventListener('mousemove', function(e){
-          var r = el.getBoundingClientRect();
-          var px = (e.clientX - r.left) / r.width;
-          var py = (e.clientY - r.top) / r.height;
-          var rx = (py - 0.5) * -5;
-          var ry = (px - 0.5) * 5;
-          el.style.transform = 'perspective(800px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
-        });
-        el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
-      });
-    }
 
     // Ambient depth: the hero's seed-of-life motif drifts opposite the pointer
     var seedMotif = document.querySelector('.seed-of-life');
