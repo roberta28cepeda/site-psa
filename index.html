@@ -22,6 +22,9 @@
     --gold-soft:rgba(166,126,98,0.12);
     --khaki:#AE9E7F;
     --forest:#3C6B22;
+    --wine:#6E1E36;
+    --wine-soft:rgba(110,30,54,0.10);
+    --wine-deep:#4A1226;
     --on-gold-dark:#FFF8EF;
     --border:#E1D4BE;
     --shadow:rgba(43,31,23,0.12);
@@ -39,6 +42,9 @@
       --gold-soft:rgba(201,160,124,0.14);
       --khaki:#C9B896;
       --forest:#7FB35C;
+      --wine:#E68CA8;
+      --wine-soft:rgba(230,140,168,0.16);
+      --wine-deep:#7A2B44;
       --on-gold-dark:#2B160E;
       --border:#3E301F;
       --shadow:rgba(0,0,0,0.4);
@@ -56,6 +62,9 @@
     --gold-soft:rgba(201,160,124,0.14);
     --khaki:#C9B896;
     --forest:#7FB35C;
+    --wine:#E68CA8;
+    --wine-soft:rgba(230,140,168,0.16);
+    --wine-deep:#7A2B44;
     --on-gold-dark:#2B160E;
     --border:#3E301F;
     --shadow:rgba(0,0,0,0.4);
@@ -149,11 +158,11 @@
   .hero{ padding-block:64px 56px; position:relative; overflow:hidden; }
   .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; }
   .hero h1{ font-size:44px; line-height:1.14; margin-bottom:20px; }
-  .hero h1 em{ font-style:italic; color:var(--gold); }
+  .hero h1 em{ font-style:italic; color:var(--wine); }
   .hero-stats{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:18px; font-size:12.5px; font-weight:600; color:var(--muted); }
   .hero-stats .dot{ color:var(--gold); font-weight:700; }
   .hero .actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:26px; }
-  .seed-of-life{ position:absolute; pointer-events:none; opacity:0.5; }
+  .seed-of-life{ position:absolute; pointer-events:none; opacity:0.5; transition:transform .3s ease-out; }
   .hero-panel{
     background:var(--surface); border:1px solid var(--border); border-radius:16px;
     padding:28px; box-shadow:0 18px 46px var(--shadow); position:relative; overflow:hidden;
@@ -168,13 +177,15 @@
     display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; font-size:13px;
     flex-shrink:0; background:var(--gold-soft);
   }
+  .flow-num.is-lead{ border-color:var(--wine); color:var(--wine); background:var(--wine-soft); }
   .flow-step b{ font-size:14px; color:var(--ink); font-weight:700; }
   .flow-step small{ display:block; font-size:12px; color:var(--muted); margin-top:1px; }
   .hero-panel .cite{ margin-top:18px; padding-top:16px; border-top:1px solid var(--border); font-size:11.5px; color:var(--muted); font-style:italic; line-height:1.5; }
   @media (prefers-reduced-motion: no-preference){
     @keyframes stepGlow{ 0%,80%,100%{ box-shadow:none; } 6%,14%{ box-shadow:0 0 0 5px var(--gold-soft); } }
-    .flow-step:nth-child(1) .flow-num{ animation:stepGlow 7.5s ease-in-out infinite; }
-    .flow-step:nth-child(2) .flow-num{ animation:stepGlow 7.5s ease-in-out infinite 2.5s; }
+    @keyframes stepGlowWine{ 0%,80%,100%{ box-shadow:none; } 6%,14%{ box-shadow:0 0 0 5px var(--wine-soft); } }
+    .flow-step:nth-child(1) .flow-num{ animation:stepGlowWine 7.5s ease-in-out infinite; }
+    .flow-step:nth-child(2) .flow-num{ animation:stepGlowWine 7.5s ease-in-out infinite 2.5s; }
     .flow-step:nth-child(3) .flow-num{ animation:stepGlow 7.5s ease-in-out infinite 5s; }
   }
 
@@ -198,14 +209,20 @@
     grid-column:1 / -1; font-family:'Playfair Display',serif; font-size:13px; font-weight:700;
     letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dark);
     padding-bottom:10px; border-bottom:1px solid var(--border); margin-top:12px;
+    display:flex; align-items:center; gap:9px;
   }
   .svc-group-label:first-child{ margin-top:0; }
+  .svc-group-label::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--gold-dark); flex-shrink:0; }
+  .svc-group-label.is-lead{ color:var(--wine); border-bottom-color:var(--wine-soft); }
+  .svc-group-label.is-lead::before{ background:var(--wine); }
   .svc{
     background:var(--surface); border:1px solid var(--border); border-radius:14px;
     transition:border-color .15s ease, box-shadow .15s ease, transform .12s ease;
     transform-style:preserve-3d; will-change:transform;
   }
   .svc:hover{ border-color:var(--gold); box-shadow:0 10px 28px var(--shadow); }
+  .svc.expanded{ border-color:var(--wine); }
+  .svc.expanded .svc-chev{ color:var(--wine); }
   .svc-head{ all:unset; box-sizing:border-box; display:block; width:100%; padding:26px; cursor:pointer; border-radius:14px; }
   .svc-head:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
   .svc-head-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
@@ -232,8 +249,8 @@
   .m-step:last-child{ border-right:none; }
   .m-step:hover{ background:var(--gold-soft); }
   .m-step:focus-visible{ outline:2px solid var(--gold); outline-offset:-2px; }
-  .m-step.active{ background:var(--gold-soft); }
-  .m-step.active .k{ color:var(--gold-dark); }
+  .m-step.active{ background:var(--wine-soft); }
+  .m-step.active .k{ color:var(--wine); }
   .m-step .k{ font-family:'Playfair Display',serif; font-size:22px; color:var(--gold); font-weight:700; display:block; margin-bottom:10px; transition:color .2s ease; }
   .m-step b{ display:block; font-size:14px; color:var(--ink); margin-bottom:5px; }
   .m-step small{ font-size:12px; color:var(--muted); line-height:1.45; }
@@ -241,7 +258,7 @@
     display:flex; gap:16px; align-items:flex-start; margin-top:4px; background:var(--surface);
     border:1px solid var(--border); border-radius:0 0 14px 14px; padding:22px 26px;
   }
-  .method-detail-k{ font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--gold); flex-shrink:0; }
+  .method-detail-k{ font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--wine); flex-shrink:0; }
   .method-detail p{ margin:0; font-size:14px; line-height:1.7; color:var(--text); }
   .method-epigraph{ margin-top:30px; font-family:'Playfair Display',serif; font-style:italic; font-size:15.5px; color:var(--text); border-left:3px solid var(--gold); padding-left:18px; max-width:640px; }
   .method-epigraph cite{ display:block; font-family:'Poppins',sans-serif; font-style:normal; font-size:11.5px; color:var(--muted); margin-top:8px; letter-spacing:0.03em; }
@@ -260,12 +277,31 @@
     border:1px solid var(--border); box-shadow:0 18px 40px var(--shadow);
   }
   .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .badge-award{
-    position:absolute; left:-14px; bottom:-16px; background:var(--surface); border:1px solid var(--border);
-    border-radius:12px; padding:10px 14px; box-shadow:0 10px 24px var(--shadow); max-width:190px;
+  /* 3D flip seal */
+  .seal-3d{
+    position:absolute; left:-18px; bottom:-18px; width:108px; height:108px;
+    perspective:900px; background:none; border:none; padding:0; cursor:pointer; -webkit-tap-highlight-color:transparent;
   }
-  .badge-award b{ display:block; font-size:12px; color:var(--gold-dark); font-family:'Playfair Display',serif; }
-  .badge-award span{ display:block; font-size:10.5px; color:var(--muted); margin-top:2px; letter-spacing:0.02em; }
+  .seal-3d-inner{
+    display:block; position:relative; width:100%; height:100%; border-radius:50%;
+    transform-style:preserve-3d; transition:transform .8s cubic-bezier(.4,.2,.2,1);
+    box-shadow:0 14px 32px var(--shadow);
+  }
+  .seal-3d[aria-pressed="true"] .seal-3d-inner{ transform:rotateY(180deg); }
+  .seal-3d:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; }
+  .seal-face{
+    position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+  }
+  .seal-front{ background:radial-gradient(circle at 32% 28%, var(--wine) 0%, var(--wine-deep) 78%); }
+  .seal-front svg{ width:62%; height:62%; }
+  .seal-back{
+    background:radial-gradient(circle at 32% 28%, var(--wine-deep) 0%, #1C0710 85%);
+    transform:rotateY(180deg); color:#EFDCC4; text-align:center; padding:12px; flex-direction:column; gap:2px;
+  }
+  .seal-back b{ font-family:'Playfair Display',serif; font-size:11px; line-height:1.25; display:block; }
+  .seal-back span{ font-size:8px; letter-spacing:0.03em; line-height:1.3; display:block; margin-top:3px; opacity:.85; }
+  @media (prefers-reduced-motion: reduce){ .seal-3d-inner{ transition:none; } }
   .about-quote{ font-family:'Playfair Display',serif; font-size:19px; line-height:1.5; color:var(--gold-dark); font-style:italic; margin-bottom:18px; }
   .about-name b{ font-size:14.5px; color:var(--ink); }
   .about-name span{ display:block; font-size:12.5px; color:var(--muted); margin-top:2px; }
@@ -346,7 +382,7 @@
     .norms .wrap{ gap:16px; }
     .contact h2{ font-size:24px; }
     .insights-card{ padding:26px 22px; }
-    .badge-award{ left:8px; bottom:-14px; }
+    .seal-3d{ left:8px; bottom:-14px; }
   }
 </style>
 </head>
@@ -407,12 +443,12 @@
     </svg>
     <div class="wrap hero-grid">
       <div data-reveal>
-        <div class="eyebrow">Compliance · Tributário · Empresarial</div>
+        <div class="eyebrow">Compliance &amp; Investigações Corporativas</div>
         <h1><em>Blindagem</em> jurídica para negócios que não podem parar</h1>
-        <p class="lede">A PSA Advocacia Consultiva atua em compliance, direito tributário e direito empresarial — do desenho preventivo de políticas e contratos à defesa administrativa e judicial — para empresas que não têm espaço para incerteza jurídica.</p>
+        <p class="lede">A PSA Advocacia Consultiva atua em compliance e investigações corporativas — com o suporte de uma prática tributária e empresarial — do desenho preventivo de políticas à apuração de casos sensíveis e à defesa administrativa e judicial.</p>
         <div class="hero-stats">
           <span>12 anos blindando negócios</span><span class="dot">•</span>
-          <span>Compliance · Tributário · Empresarial</span><span class="dot">•</span>
+          <span>Compliance · Investigações · Tributário · Empresarial</span><span class="dot">•</span>
           <span>Atuação em todo o Brasil</span>
         </div>
         <div class="actions">
@@ -423,11 +459,11 @@
       <div class="hero-panel" data-reveal>
         <div class="eyebrow" style="margin-bottom:16px;">Três frentes, uma só estratégia</div>
         <div class="flow">
-          <div class="flow-step"><span class="flow-num">1</span><div><b>Compliance</b><small>Programas de integridade, código de conduta e canais de denúncia que resistem a auditoria e fiscalização</small></div></div>
-          <div class="flow-step"><span class="flow-num">2</span><div><b>Tributário</b><small>Planejamento, defesa administrativa e judicial e recuperação de créditos fiscais</small></div></div>
-          <div class="flow-step"><span class="flow-num">3</span><div><b>Empresarial</b><small>Contratos, societário e governança que sustentam o crescimento sem abrir brechas jurídicas</small></div></div>
+          <div class="flow-step"><span class="flow-num is-lead">1</span><div><b>Compliance</b><small>Programas de integridade, código de conduta e treinamento que resistem a auditoria e fiscalização</small></div></div>
+          <div class="flow-step"><span class="flow-num is-lead">2</span><div><b>Investigações Corporativas</b><small>Canal de ética, apuração de denúncias, due diligence e background checks</small></div></div>
+          <div class="flow-step"><span class="flow-num">3</span><div><b>Tributário &amp; Empresarial</b><small>Planejamento fiscal, contratos e governança que sustentam o negócio</small></div></div>
         </div>
-        <div class="cite">Três áreas que, na prática, raramente aparecem separadas dentro de uma empresa — por isso trabalhamos as três de forma integrada.</div>
+        <div class="cite">Três frentes que, na prática, raramente aparecem separadas dentro de uma empresa — por isso trabalhamos as três de forma integrada.</div>
       </div>
     </div>
   </section>
@@ -446,12 +482,12 @@
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <div class="eyebrow">Áreas de atuação</div>
-        <h2>Compliance, tributário e direito empresarial em uma só estratégia jurídica</h2>
-        <p class="lede" style="margin-top:14px;">Cada área resolve uma parte do risco: compliance previne, o tributário reduz exposição e custo, e o direito empresarial sustenta a operação do negócio. Trabalhamos as três de forma integrada, para que a solução de uma frente não crie um problema em outra.</p>
+        <h2>Compliance e investigações corporativas no centro da estratégia</h2>
+        <p class="lede" style="margin-top:14px;">Prevenção, apuração e resposta a riscos de integridade são o centro do nosso trabalho — com o suporte de uma prática tributária e societária para fechar a estratégia jurídica do cliente.</p>
       </div>
 
       <div class="grid-services">
-        <div class="svc-group-label">Compliance</div>
+        <div class="svc-group-label is-lead">Compliance</div>
         <div class="svc" data-reveal>
           <button class="svc-head" aria-expanded="false" aria-controls="svc-01">
             <div class="svc-head-row">
@@ -473,14 +509,14 @@
             <div class="svc-head-row">
               <div>
                 <div class="n">02</div>
-                <h3>Código de conduta e canais de denúncia</h3>
-                <p>Elaboração de código de conduta, políticas internas e canal de ética, com fluxo de recebimento, triagem e apuração de relatos.</p>
+                <h3>Código de conduta e políticas internas</h3>
+                <p>Elaboração de código de conduta, políticas de conflito de interesses, presentes e brindes, e demais políticas aplicáveis ao dia a dia da empresa.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-02"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-quote">Um canal de denúncia só tem credibilidade quando o colaborador confia no sigilo e no tratamento imparcial do relato.</p>
+            <p class="svc-quote">Uma política que ninguém lê é só um documento a mais no drive da empresa.</p>
           </div></div></div>
         </div>
 
@@ -489,8 +525,8 @@
             <div class="svc-head-row">
               <div>
                 <div class="n">03</div>
-                <h3>Investigações internas e treinamento</h3>
-                <p>Condução ou apoio a investigações internas, análise de denúncias e capacitação de conselheiros, diretores e equipes em ética e tomada de decisão.</p>
+                <h3>Treinamento e cultura de compliance</h3>
+                <p>Capacitação de conselheiros, diretores e equipes em conduta ética, tomada de decisão e prevenção de irregularidades.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
@@ -500,20 +536,20 @@
           </div></div></div>
         </div>
 
-        <div class="svc-group-label">Tributário</div>
+        <div class="svc-group-label is-lead">Investigações Corporativas</div>
         <div class="svc" data-reveal>
           <button class="svc-head" aria-expanded="false" aria-controls="svc-04">
             <div class="svc-head-row">
               <div>
                 <div class="n">04</div>
-                <h3>Planejamento tributário</h3>
-                <p>Estruturação fiscal preventiva, revisão de regime de tributação e identificação de oportunidades de economia lícita.</p>
+                <h3>Canais de denúncia e apuração</h3>
+                <p>Implantação de canal de ética, definição de fluxo de recebimento e triagem, e apuração de relatos internos.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-04"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-quote">Planejamento tributário bem feito é decidido antes da operação acontecer, não depois da autuação chegar.</p>
+            <p class="svc-quote">Um canal de denúncia só tem credibilidade quando o colaborador confia no sigilo e no tratamento imparcial do relato.</p>
           </div></div></div>
         </div>
 
@@ -522,14 +558,14 @@
             <div class="svc-head-row">
               <div>
                 <div class="n">05</div>
-                <h3>Contencioso administrativo e judicial</h3>
-                <p>Defesa em autuações fiscais e processos administrativos, além de ações judiciais tributárias, incluindo parcelamentos e teses de repetição de indébito.</p>
+                <h3>Investigações internas</h3>
+                <p>Condução ou apoio a investigações internas, da coleta de evidências à conclusão fundamentada do caso.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-05"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-quote">Cada autuação é também uma oportunidade de revisar a tese fiscal aplicada e, muitas vezes, de recuperar valores pagos indevidamente.</p>
+            <p class="svc-quote">Uma investigação malconduzida pode custar mais caro à empresa do que o próprio fato investigado.</p>
           </div></div></div>
         </div>
 
@@ -538,31 +574,31 @@
             <div class="svc-head-row">
               <div>
                 <div class="n">06</div>
-                <h3>Consultoria tributária preventiva</h3>
-                <p>Análise prévia de operações, contratos e reorganizações societárias sob a ótica tributária, para reduzir risco fiscal antes da execução.</p>
+                <h3>Due diligence e background checks</h3>
+                <p>Avaliação de fornecedores, parceiros, executivos e alvos de operações societárias, com foco em integridade e risco reputacional.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-06"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-quote">O melhor momento para consultar o time tributário é antes de assinar o contrato, não depois de receber a notificação.</p>
+            <p class="svc-quote">Boa parte do risco reputacional de uma empresa está em quem ela escolhe como parceiro — e isso se verifica antes de assinar.</p>
           </div></div></div>
         </div>
 
-        <div class="svc-group-label">Empresarial</div>
+        <div class="svc-group-label">Tributário &amp; Empresarial</div>
         <div class="svc" data-reveal>
           <button class="svc-head" aria-expanded="false" aria-controls="svc-07">
             <div class="svc-head-row">
               <div>
                 <div class="n">07</div>
-                <h3>Contratos empresariais</h3>
-                <p>Elaboração e revisão de contratos comerciais, de prestação de serviços, parceria e fornecimento, com cláusulas que antecipam disputas.</p>
+                <h3>Planejamento e contencioso tributário</h3>
+                <p>Estruturação fiscal preventiva e defesa em autuações, processos administrativos e ações judiciais tributárias.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </button>
           <div class="svc-more" id="svc-07"><div class="svc-more-inner"><div class="svc-more-pad">
-            <p class="svc-quote">Um bom contrato é aquele que ninguém precisa reler quando a relação já está desgastada.</p>
+            <p class="svc-quote">Planejamento tributário bem feito é decidido antes da operação acontecer, não depois da autuação chegar.</p>
           </div></div></div>
         </div>
 
@@ -571,8 +607,8 @@
             <div class="svc-head-row">
               <div>
                 <div class="n">08</div>
-                <h3>Societário e reorganizações</h3>
-                <p>Constituição de sociedades, alterações contratuais, acordos de sócios, fusões, aquisições e reorganizações societárias.</p>
+                <h3>Contratos e societário</h3>
+                <p>Elaboração e revisão de contratos empresariais, constituição de sociedades, acordos de sócios e reorganizações societárias.</p>
               </div>
               <svg class="svc-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
@@ -659,10 +695,21 @@
           <div class="avatar">
             <img src="assets/priscila-alves.jpg" alt="Priscila Alves, sócia da PSA Advocacia Consultiva">
           </div>
-          <div class="badge-award">
-            <b>Leaders League Brasil 2025</b>
-            <span>Reconhecimento em Compliance &amp; Investigações</span>
-          </div>
+          <button class="seal-3d" id="sealBadge" type="button" aria-pressed="false" aria-label="Selo da PSA. Toque para ver o reconhecimento no verso.">
+            <span class="seal-3d-inner">
+              <span class="seal-face seal-front">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <path d="M62 30C46 26 36 38 48 45C62 53 58 66 40 68" stroke="#B9924F" stroke-width="7" stroke-linecap="round" fill="none"/>
+                  <text x="26" y="64" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="40" fill="#E9C98A">P</text>
+                  <text x="52" y="64" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="40" fill="#E9C98A">A</text>
+                </svg>
+              </span>
+              <span class="seal-face seal-back">
+                <b>Leaders League<br>Brasil 2025</b>
+                <span>Compliance &amp; Investigações Corporativas</span>
+              </span>
+            </span>
+          </button>
         </div>
       </div>
       <div data-reveal>
@@ -895,6 +942,26 @@
           el.style.transform = 'perspective(800px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
         });
         el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
+      });
+    }
+
+    // 3D flip seal (click/tap to pin the flip; also flips on hover via CSS)
+    var sealBadge = document.getElementById('sealBadge');
+    if (sealBadge){
+      sealBadge.addEventListener('click', function(){
+        var pressed = sealBadge.getAttribute('aria-pressed') === 'true';
+        sealBadge.setAttribute('aria-pressed', String(!pressed));
+      });
+    }
+
+    // Ambient depth: the hero's seed-of-life motif drifts opposite the pointer
+    var seedMotif = document.querySelector('.seed-of-life');
+    if (seedMotif && !reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+      document.querySelector('.hero').addEventListener('mousemove', function(e){
+        var r = this.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        seedMotif.style.transform = 'translate3d(' + (px * -14).toFixed(1) + 'px,' + (py * -14).toFixed(1) + 'px,0)';
       });
     }
   })();
