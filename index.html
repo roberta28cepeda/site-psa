@@ -158,6 +158,13 @@
 
   /* Hero */
   .hero{ padding-block:96px 84px; position:relative; overflow:hidden; }
+  .hero-spotlight{
+    position:absolute; inset:0; pointer-events:none; z-index:0; opacity:0;
+    background:radial-gradient(480px circle at var(--mx,50%) var(--my,10%), var(--gold-soft), transparent 72%);
+    transition:opacity .5s ease;
+  }
+  .hero.spotlight-on .hero-spotlight{ opacity:1; }
+  .hero > .wrap{ position:relative; z-index:1; }
   .hero-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:64px; align-items:center; }
   .hero h1{ font-size:56px; line-height:1.1; margin-bottom:24px; letter-spacing:-0.01em; }
   .hero h1 em{ font-style:italic; color:var(--wine); }
@@ -209,8 +216,14 @@
   .svc-group-label::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--gold-dark); flex-shrink:0; }
   .svc-group-label.is-lead{ color:var(--wine); }
   .svc-group-label.is-lead::before{ background:var(--wine); }
-  .svc{ border-bottom:1px solid var(--border); }
+  .svc{ position:relative; border-bottom:1px solid var(--border); }
   .svc:last-child{ border-bottom:none; }
+  .svc::before{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:0;
+    background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), var(--gold-soft), transparent 70%);
+    transition:opacity .3s ease;
+  }
+  .svc:hover::before{ opacity:1; }
   .svc.expanded .svc-chev{ color:var(--wine); }
   .svc-head{ all:unset; box-sizing:border-box; display:block; width:100%; padding:26px 0; cursor:pointer; }
   .svc-head:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
@@ -399,7 +412,8 @@
 </header>
 
 <main id="top">
-  <section class="hero">
+  <section class="hero" id="heroSection">
+    <div class="hero-spotlight" aria-hidden="true"></div>
     <svg class="seed-of-life" viewBox="0 0 120 120" width="150" height="150" style="top:-30px; right:-20px;" aria-hidden="true">
       <g fill="none" stroke="var(--khaki)" stroke-width="1">
         <circle cx="60" cy="60" r="20"/><circle cx="80" cy="60" r="20"/><circle cx="70" cy="77.32" r="20"/>
@@ -412,7 +426,7 @@
         <h1><em>Blindagem</em> jurídica para negócios que não podem parar</h1>
         <p class="lede">A PSA Advocacia Consultiva atua em compliance e investigações corporativas — com o suporte de uma prática tributária e empresarial — do desenho preventivo de políticas à apuração de casos sensíveis e à defesa administrativa e judicial.</p>
         <div class="hero-stats">
-          <span>12 anos blindando negócios</span><span class="dot">•</span>
+          <span><span id="statYears" data-count="12">0</span> anos blindando negócios</span><span class="dot">•</span>
           <span>Compliance · Investigações · Tributário · Empresarial</span><span class="dot">•</span>
           <span>Atuação em todo o Brasil</span>
         </div>
@@ -893,15 +907,51 @@
       });
     });
 
-    // Ambient depth: the hero's seed-of-life motif drifts opposite the pointer
+    // Ambient depth: the hero's seed-of-life motif drifts opposite the pointer,
+    // and a soft gold spotlight follows the cursor across the hero.
     var seedMotif = document.querySelector('.seed-of-life');
-    if (seedMotif && !reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches){
-      document.querySelector('.hero').addEventListener('mousemove', function(e){
-        var r = this.getBoundingClientRect();
-        var px = (e.clientX - r.left) / r.width - 0.5;
-        var py = (e.clientY - r.top) / r.height - 0.5;
-        seedMotif.style.transform = 'translate3d(' + (px * -14).toFixed(1) + 'px,' + (py * -14).toFixed(1) + 'px,0)';
+    var heroSection = document.getElementById('heroSection');
+    if (heroSection && !reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+      heroSection.addEventListener('mousemove', function(e){
+        var r = heroSection.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width;
+        var py = (e.clientY - r.top) / r.height;
+        heroSection.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+        heroSection.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+        heroSection.classList.add('spotlight-on');
+        if (seedMotif) seedMotif.style.transform = 'translate3d(' + ((px - 0.5) * -14).toFixed(1) + 'px,' + ((py - 0.5) * -14).toFixed(1) + 'px,0)';
       });
+      heroSection.addEventListener('mouseleave', function(){ heroSection.classList.remove('spotlight-on'); });
+    }
+
+    // Same soft spotlight on each service row
+    if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+      document.querySelectorAll('.svc').forEach(function(el){
+        el.addEventListener('mousemove', function(e){
+          var r = el.getBoundingClientRect();
+          el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+          el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+        });
+      });
+    }
+
+    // Count up the "years in business" stat once the hero is on screen
+    var statYears = document.getElementById('statYears');
+    if (statYears){
+      var target = parseInt(statYears.getAttribute('data-count'), 10) || 0;
+      if (reduceMotion){
+        statYears.textContent = target;
+      } else {
+        var start = null;
+        var duration = 1200;
+        function stepCount(ts){
+          if (start === null) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          statYears.textContent = Math.round(progress * target);
+          if (progress < 1) requestAnimationFrame(stepCount);
+        }
+        setTimeout(function(){ requestAnimationFrame(stepCount); }, 300);
+      }
     }
   })();
 </script>
