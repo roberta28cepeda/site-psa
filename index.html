@@ -277,31 +277,12 @@
     border:1px solid var(--border); box-shadow:0 18px 40px var(--shadow);
   }
   .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
-  /* 3D flip seal */
-  .seal-3d{
-    position:absolute; left:-18px; bottom:-18px; width:108px; height:108px;
-    perspective:900px; background:none; border:none; padding:0; cursor:pointer; -webkit-tap-highlight-color:transparent;
+  .badge-award{
+    position:absolute; left:-14px; bottom:-16px; background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:10px 14px; box-shadow:0 10px 24px var(--shadow); max-width:190px;
   }
-  .seal-3d-inner{
-    display:block; position:relative; width:100%; height:100%; border-radius:50%;
-    transform-style:preserve-3d; transition:transform .8s cubic-bezier(.4,.2,.2,1);
-    box-shadow:0 14px 32px var(--shadow);
-  }
-  .seal-3d[aria-pressed="true"] .seal-3d-inner{ transform:rotateY(180deg); }
-  .seal-3d:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; }
-  .seal-face{
-    position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
-    border-radius:50%; display:flex; align-items:center; justify-content:center;
-  }
-  .seal-front{ background:radial-gradient(circle at 32% 28%, var(--wine) 0%, var(--wine-deep) 78%); }
-  .seal-front svg{ width:62%; height:62%; }
-  .seal-back{
-    background:radial-gradient(circle at 32% 28%, var(--wine-deep) 0%, #1C0710 85%);
-    transform:rotateY(180deg); color:#EFDCC4; text-align:center; padding:12px; flex-direction:column; gap:2px;
-  }
-  .seal-back b{ font-family:'Playfair Display',serif; font-size:11px; line-height:1.25; display:block; }
-  .seal-back span{ font-size:8px; letter-spacing:0.03em; line-height:1.3; display:block; margin-top:3px; opacity:.85; }
-  @media (prefers-reduced-motion: reduce){ .seal-3d-inner{ transition:none; } }
+  .badge-award b{ display:block; font-size:12px; color:var(--gold-dark); font-family:'Playfair Display',serif; }
+  .badge-award span{ display:block; font-size:10.5px; color:var(--muted); margin-top:2px; letter-spacing:0.02em; }
   .about-quote{ font-family:'Playfair Display',serif; font-size:19px; line-height:1.5; color:var(--gold-dark); font-style:italic; margin-bottom:18px; }
   .about-name b{ font-size:14.5px; color:var(--ink); }
   .about-name span{ display:block; font-size:12.5px; color:var(--muted); margin-top:2px; }
@@ -382,7 +363,7 @@
     .norms .wrap{ gap:16px; }
     .contact h2{ font-size:24px; }
     .insights-card{ padding:26px 22px; }
-    .seal-3d{ left:8px; bottom:-14px; }
+    .badge-award{ left:8px; bottom:-14px; }
   }
 </style>
 </head>
@@ -695,21 +676,10 @@
           <div class="avatar">
             <img src="assets/priscila-alves.jpg" alt="Priscila Alves, sócia da PSA Advocacia Consultiva">
           </div>
-          <button class="seal-3d" id="sealBadge" type="button" aria-pressed="false" aria-label="Selo da PSA. Toque para ver o reconhecimento no verso.">
-            <span class="seal-3d-inner">
-              <span class="seal-face seal-front">
-                <svg viewBox="0 0 100 100" aria-hidden="true">
-                  <path d="M62 30C46 26 36 38 48 45C62 53 58 66 40 68" stroke="#B9924F" stroke-width="7" stroke-linecap="round" fill="none"/>
-                  <text x="26" y="64" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="40" fill="#E9C98A">P</text>
-                  <text x="52" y="64" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-size="40" fill="#E9C98A">A</text>
-                </svg>
-              </span>
-              <span class="seal-face seal-back">
-                <b>Leaders League<br>Brasil 2025</b>
-                <span>Compliance &amp; Investigações Corporativas</span>
-              </span>
-            </span>
-          </button>
+          <div class="badge-award">
+            <b>Leaders League Brasil 2025</b>
+            <span>Reconhecimento em Compliance &amp; Investigações</span>
+          </div>
         </div>
       </div>
       <div data-reveal>
@@ -942,15 +912,6 @@
           el.style.transform = 'perspective(800px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
         });
         el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
-      });
-    }
-
-    // 3D flip seal (click/tap to pin the flip; also flips on hover via CSS)
-    var sealBadge = document.getElementById('sealBadge');
-    if (sealBadge){
-      sealBadge.addEventListener('click', function(){
-        var pressed = sealBadge.getAttribute('aria-pressed') === 'true';
-        sealBadge.setAttribute('aria-pressed', String(!pressed));
       });
     }
 
