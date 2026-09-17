@@ -3,72 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 fill=%27%23fff%27/%3E%3Crect x=%271%27 y=%271%27 width=%2798%27 height=%2798%27 rx=%274%27 fill=%27none%27 stroke=%27%236B3D34%27 stroke-width=%272%27/%3E%3Ctext x=%2750%27 y=%2766%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2746%27 letter-spacing=%271%27 text-anchor=%27middle%27 fill=%27%236B3D34%27%3EPSA%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/psa-logo.png">
 <title>PSA Advocacia Consultiva</title>
 <meta name="description" content="PSA Advocacia Consultiva: assessoria jurídica em compliance, direito tributário e direito empresarial, com atuação preventiva e contenciosa para empresas em todo o Brasil.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F4EEE2;
-    --surface:#FFFFFF;
-    --surface-2:#EBE0CB;
-    --ink:#2E241D;
-    --text:#4A3F35;
-    --muted:#8C8172;
-    --gold:#A67E62;
-    --gold-dark:#6B3D34;
-    --gold-soft:rgba(166,126,98,0.12);
-    --khaki:#AE9E7F;
-    --forest:#3C6B22;
-    --wine:#6E1E36;
-    --wine-soft:rgba(110,30,54,0.10);
-    --wine-deep:#4A1226;
-    --on-gold-dark:#FFF8EF;
-    --border:#E1D4BE;
+    --bg:#F5EEE6;
+    --surface:#FBF7F1;
+    --surface-2:#EDE4DA;
+    --ink:#3B2928;
+    --text:#4A3B3B;
+    --muted:#806E6B;
+    --gold:#B8934F;
+    --gold-dark:#8A6F3D;
+    --gold-soft:rgba(184,147,79,0.14);
+    --khaki:#C9AD7E;
+    --wine:#7A1F2B;
+    --wine-soft:rgba(122,31,43,0.10);
+    --on-gold-dark:#251B1B;
+    --border:#E4D6C0;
     --shadow:rgba(43,31,23,0.12);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#1B140E;
-      --surface:#241B14;
-      --surface-2:#2E2318;
+      --bg:#1E1512;
+      --surface:#271C18;
+      --surface-2:#31241F;
       --ink:#F1E7DA;
       --text:#DCCEBC;
-      --muted:#A8987F;
-      --gold:#C9A07C;
-      --gold-dark:#E4B29C;
-      --gold-soft:rgba(201,160,124,0.14);
-      --khaki:#C9B896;
-      --forest:#7FB35C;
-      --wine:#E68CA8;
-      --wine-soft:rgba(230,140,168,0.16);
-      --wine-deep:#7A2B44;
+      --muted:#B0A19B;
+      --gold:#D4B372;
+      --gold-dark:#E8C88F;
+      --gold-soft:rgba(212,179,114,0.16);
+      --khaki:#D8BE93;
+      --wine:#E38C99;
+      --wine-soft:rgba(227,140,153,0.16);
       --on-gold-dark:#2B160E;
-      --border:#3E301F;
+      --border:#453530;
       --shadow:rgba(0,0,0,0.4);
     }
   }
   :root[data-theme="dark"]{
-    --bg:#1B140E;
-    --surface:#241B14;
-    --surface-2:#2E2318;
+    --bg:#1E1512;
+    --surface:#271C18;
+    --surface-2:#31241F;
     --ink:#F1E7DA;
     --text:#DCCEBC;
-    --muted:#A8987F;
-    --gold:#C9A07C;
-    --gold-dark:#E4B29C;
-    --gold-soft:rgba(201,160,124,0.14);
-    --khaki:#C9B896;
-    --forest:#7FB35C;
-    --wine:#E68CA8;
-    --wine-soft:rgba(230,140,168,0.16);
-    --wine-deep:#7A2B44;
+    --muted:#B0A19B;
+    --gold:#D4B372;
+    --gold-dark:#E8C88F;
+    --gold-soft:rgba(212,179,114,0.16);
+    --khaki:#D8BE93;
+    --wine:#E38C99;
+    --wine-soft:rgba(227,140,153,0.16);
     --on-gold-dark:#2B160E;
-    --border:#3E301F;
+    --border:#453530;
     --shadow:rgba(0,0,0,0.4);
   }
 
@@ -79,7 +73,7 @@
     margin:0;
     background:var(--bg);
     color:var(--text);
-    font-family:'Poppins',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
     padding-inline:0;
     overflow-x:hidden;
   }
@@ -88,21 +82,21 @@
   ul{ list-style:none; margin:0; padding:0; }
   .wrap{ max-width:1120px; margin:0 auto; padding-inline:24px; position:relative; }
   section{ padding-block:96px; }
-  h1,h2,h3{ font-family:'Playfair Display',Georgia,serif; color:var(--gold-dark); text-wrap:balance; margin:0; }
+  h1,h2,h3{ font-family:'Playfair Display',Georgia,serif; color:var(--ink); text-wrap:balance; margin:0; }
   .eyebrow{
     font-size:11.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--gold-dark); margin-bottom:14px; display:flex; align-items:center; gap:10px;
+    color:var(--wine); margin-bottom:14px; display:flex; align-items:center; gap:10px;
   }
   .eyebrow::before{ content:""; width:22px; height:1.5px; background:var(--gold); display:inline-block; }
   .lede{ font-size:17px; line-height:1.7; color:var(--muted); max-width:60ch; }
   .btn{
     display:inline-flex; align-items:center; gap:8px;
-    font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; letter-spacing:0.02em;
+    font-family:'DM Sans',sans-serif; font-weight:700; font-size:13.5px; letter-spacing:0.02em;
     padding:14px 24px; border-radius:8px; cursor:pointer; border:1px solid transparent;
     transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
   }
   .btn:active{ transform:translateY(1px); }
-  .btn-primary{ background:var(--gold-dark); color:var(--on-gold-dark); }
+  .btn-primary{ background:var(--gold); color:var(--on-gold-dark); }
   .btn-primary:hover{ box-shadow:0 8px 22px var(--shadow); }
   .btn-ghost{ background:transparent; border-color:var(--border); color:var(--ink); }
   .btn-ghost:hover{ border-color:var(--gold); }
@@ -143,14 +137,14 @@
     width:38px; height:38px; flex-shrink:0;
     display:flex; align-items:center; justify-content:center;
   }
-  .brand .mono svg{ width:100%; height:100%; display:block; }
+  .brand .mono svg, .brand .mono img{ width:100%; height:100%; display:block; object-fit:contain; }
   .brand .word{ display:flex; flex-direction:column; line-height:1.15; }
   .brand .word b{ font-family:'Playfair Display',serif; font-weight:700; font-size:15px; letter-spacing:0.03em; color:var(--ink); }
   .brand .word span{ font-size:9.5px; letter-spacing:0.16em; color:var(--muted); text-transform:uppercase; }
   nav.links{ display:flex; align-items:center; gap:30px; }
   nav.links a{ font-size:13.5px; font-weight:600; color:var(--text); padding-bottom:3px; border-bottom:2px solid transparent; transition:color .15s ease, border-color .15s ease; }
-  nav.links a:hover{ color:var(--gold-dark); }
-  nav.links a.active{ color:var(--gold-dark); border-color:var(--gold); }
+  nav.links a:hover{ color:var(--wine); }
+  nav.links a.active{ color:var(--wine); border-color:var(--gold); }
   .nav-cta{ display:flex; align-items:center; gap:14px; }
   .burger{ display:none; background:none; border:none; padding:6px; cursor:pointer; }
   .burger span{ display:block; width:22px; height:1.6px; background:var(--ink); margin:5px 0; }
@@ -182,7 +176,7 @@
   .scale-3d-svg .s-pan{ stroke:var(--wine); stroke-width:3; fill:none; stroke-linecap:round; }
   .scale-3d-svg .s-pivot{ fill:var(--gold-dark); }
   .scale-labels{ position:relative; margin-top:26px; min-height:24px; text-align:center; }
-  .scale-label{ font-family:'Playfair Display',serif; font-style:italic; font-size:15.5px; color:var(--gold-dark); }
+  .scale-label{ font-family:'Playfair Display',serif; font-style:italic; font-size:15.5px; color:var(--wine); }
   @media (prefers-reduced-motion: no-preference){
     .scale-3d-svg{ transform-style:preserve-3d; animation:scaleTurn 12s ease-in-out infinite; }
     @keyframes scaleTurn{ 0%,100%{ transform:rotateY(-12deg); } 50%{ transform:rotateY(12deg); } }
@@ -238,7 +232,7 @@
   .svc.expanded .svc-more{ grid-template-rows:1fr; }
   .svc-more-inner{ overflow:hidden; }
   .svc-more-pad{ padding:0 0 26px; border-left:2px solid var(--wine-soft); margin-left:2px; padding-left:20px; }
-  .svc-quote{ font-family:'Playfair Display',serif; font-style:italic; font-size:15px; line-height:1.6; color:var(--gold-dark); margin:0; }
+  .svc-quote{ font-family:'Playfair Display',serif; font-style:italic; font-size:15px; line-height:1.6; color:var(--wine); margin:0; }
   .svc-note{ font-size:13.5px; line-height:1.65; color:var(--muted); margin:0; }
 
   /* Method strip */
@@ -261,14 +255,14 @@
   .method-detail-k{ font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--wine); flex-shrink:0; }
   .method-detail p{ margin:0; font-size:15px; line-height:1.75; color:var(--text); max-width:62ch; }
   .method-epigraph{ margin-top:30px; font-family:'Playfair Display',serif; font-style:italic; font-size:15.5px; color:var(--text); border-left:3px solid var(--gold); padding-left:18px; max-width:640px; }
-  .method-epigraph cite{ display:block; font-family:'Poppins',sans-serif; font-style:normal; font-size:11.5px; color:var(--muted); margin-top:8px; letter-spacing:0.03em; }
+  .method-epigraph cite{ display:block; font-family:'DM Sans',sans-serif; font-style:normal; font-size:11.5px; color:var(--muted); margin-top:8px; letter-spacing:0.03em; }
 
   /* Differentiators */
   .diff-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
   .diff-grid > *{ min-width:0; }
   .diff-grid .item b{ display:block; font-family:'Playfair Display',serif; font-size:19px; color:var(--ink); margin-bottom:9px; }
   .diff-grid .item p{ font-size:13.8px; line-height:1.65; color:var(--muted); margin:0; }
-  .diff-grid .item .idx{ font-size:11px; letter-spacing:0.12em; color:var(--gold-dark); font-weight:700; margin-bottom:12px; display:block; }
+  .diff-grid .item .idx{ font-size:11px; letter-spacing:0.12em; color:var(--wine); font-weight:700; margin-bottom:12px; display:block; }
 
   /* About */
   .about{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:48px; align-items:start; }
@@ -285,10 +279,10 @@
   }
   .badge-award b{ display:block; font-size:12px; color:var(--gold-dark); font-family:'Playfair Display',serif; }
   .badge-award span{ display:block; font-size:10.5px; color:var(--muted); margin-top:2px; letter-spacing:0.02em; }
-  .about-quote{ font-family:'Playfair Display',serif; font-size:19px; line-height:1.5; color:var(--gold-dark); font-style:italic; margin-bottom:18px; }
+  .about-quote{ font-family:'Playfair Display',serif; font-size:19px; line-height:1.5; color:var(--wine); font-style:italic; margin-bottom:18px; }
   .about-name b{ font-size:14.5px; color:var(--ink); }
   .about-name span{ display:block; font-size:12.5px; color:var(--muted); margin-top:2px; }
-  .about-name .about-tagline{ font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--gold-dark); margin-top:8px; }
+  .about-name .about-tagline{ font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--wine); margin-top:8px; }
   .about-bio{ font-size:13.8px; line-height:1.7; color:var(--text); margin:16px 0 0; }
   .about-bio + .about-bio{ margin-top:10px; }
   .about-links{ display:flex; gap:16px; margin-top:18px; flex-wrap:wrap; }
@@ -387,10 +381,7 @@
   <div class="wrap nav-row">
     <a href="#top" class="brand">
       <span class="mono" aria-hidden="true">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1" y="1" width="98" height="98" rx="4" fill="none" stroke="var(--gold-dark)" stroke-width="2"/>
-          <text x="50" y="66" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="46" letter-spacing="1" text-anchor="middle" fill="var(--gold-dark)">PSA</text>
-        </svg>
+        <img src="assets/psa-logo.png" alt="" width="100" height="100">
       </span>
       <span class="word"><b>PSA</b><span>Advocacia Consultiva</span></span>
     </a>
@@ -703,7 +694,7 @@
       </div>
       <div data-reveal>
         <div class="eyebrow">Quem conduz</div>
-        <p class="about-quote">"Direito empresarial de verdade é aquele que evita o problema tributário e o risco de compliance antes que virem crise."</p>
+        <p class="about-quote">"Justiça começa com quem luta por ela."</p>
         <div class="about-name">
           <b>Priscila Alves</b>
           <span>Sócia fundadora — PSA Advocacia Consultiva</span>
@@ -761,7 +752,7 @@
           </div>
           <div class="ch-item">
             <span class="ch-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 6l8.5 7 8.5-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <div><b>E-mail</b><span>psa@psalaw.adv.br</span></div>
+            <div><b>E-mail</b><span>contato@psaadvocacia.com.br</span></div>
           </div>
           <div class="ch-item">
             <span class="ch-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg></span>
@@ -782,8 +773,9 @@
     <div class="foot-brand">© <span id="year">2026</span> PSA Advocacia Consultiva · Compliance · Tributário · Empresarial</div>
     <div class="foot-links">
       <a href="https://instagram.com/psaadvocaciaempresarial" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/company/psaadvocacia/about/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://wa.me/5521983884842" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="mailto:psa@psalaw.adv.br">E-mail</a>
+      <a href="mailto:contato@psaadvocacia.com.br">E-mail</a>
       <a href="https://blog.psalaw.adv.br" target="_blank" rel="noopener">Blog</a>
     </div>
   </div>
